@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities;
+package com.weywallet.presenter.activities;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,19 +18,19 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.util.ActivityUTILS;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.customviews.BRDialogView;
-import com.breadwallet.presenter.interfaces.BROnSignalCompletion;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.animation.SpringAnimator;
-import com.breadwallet.tools.manager.BRReportsManager;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.security.SmartValidator;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.tools.util.Bip39Reader;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.util.ActivityUTILS;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.customviews.BRDialogView;
+import com.weywallet.presenter.interfaces.BROnSignalCompletion;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.animation.SpringAnimator;
+import com.weywallet.tools.manager.BRReportsManager;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.security.SmartValidator;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.tools.util.Bip39Reader;
 import java.util.Locale;
 import java.util.Random;
 
@@ -116,10 +116,10 @@ public class PaperKeyProveActivity extends BRActivity {
                 if (isWordCorrect(true) && isWordCorrect(false)) {
                     Utils.hideKeyboard(PaperKeyProveActivity.this);
                     BRSharedPrefs.putPhraseWroteDown(PaperKeyProveActivity.this, true);
-                    BRAnimator.showBreadSignal(PaperKeyProveActivity.this, getString(R.string.Alerts_paperKeySet), getString(R.string.Alerts_paperKeySetSubheader), R.drawable.ic_check_mark_white, new BROnSignalCompletion() {
+                    BRAnimator.showWeySignal(PaperKeyProveActivity.this, getString(R.string.Alerts_paperKeySet), getString(R.string.Alerts_paperKeySetSubheader), R.drawable.ic_check_mark_white, new BROnSignalCompletion() {
                         @Override
                         public void onComplete() {
-                            BRAnimator.startBreadActivity(PaperKeyProveActivity.this, false);
+                            BRAnimator.startWeyActivity(PaperKeyProveActivity.this, false);
                             overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
                             finishAffinity();
                         }
@@ -157,7 +157,7 @@ public class PaperKeyProveActivity extends BRActivity {
                             brDialogView.dismissWithAnimation();
                         }
                     }, null, null, 0);
-            BRReportsManager.reportBug(new IllegalArgumentException("Paper Key error, please contact support at breadwallet.com"), false);
+            BRReportsManager.reportBug(new IllegalArgumentException("Paper Key error, please contact support at weywallet.com"), false);
         } else {
             randomWordsSetUp(wordArray);
 

@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities.settings;
+package com.weywallet.presenter.activities.settings;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -34,14 +34,14 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.util.ActivityUTILS;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.customviews.BRDialogView;
-import com.breadwallet.presenter.customviews.BRText;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.util.Utils;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.util.ActivityUTILS;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.customviews.BRDialogView;
+import com.weywallet.presenter.customviews.BRText;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.util.Utils;
 import com.platform.HTTPServer;
 import com.platform.middlewares.plugins.LinkPlugin;
 
@@ -514,7 +514,7 @@ public class WebViewActivity extends BRActivity {
     @Override
     public void onBackPressed() {
         if (ActivityUTILS.isLast(this)) {
-            BRAnimator.startBreadActivity(this, false);
+            BRAnimator.startWeyActivity(this, false);
         } else {
             super.onBackPressed();
         }

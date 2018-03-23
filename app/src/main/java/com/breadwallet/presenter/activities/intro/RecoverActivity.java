@@ -1,16 +1,16 @@
-package com.breadwallet.presenter.activities.intro;
+package com.weywallet.presenter.activities.intro;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.InputWordsActivity;
-import com.breadwallet.presenter.activities.util.ActivityUTILS;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.SpringAnimator;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.InputWordsActivity;
+import com.weywallet.presenter.activities.util.ActivityUTILS;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.SpringAnimator;
 
 public class RecoverActivity extends BRActivity {
     private Button nextButton;

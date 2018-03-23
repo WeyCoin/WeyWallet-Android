@@ -1,12 +1,12 @@
-package com.breadwallet.tools.manager;
+package com.weywallet.tools.manager;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
 
-import com.breadwallet.BreadApp;
-import com.breadwallet.tools.util.Utils;
+import com.weywallet.WeyApp;
+import com.weywallet.tools.util.Utils;
 import com.platform.APIClient;
 
 import org.json.JSONArray;
@@ -29,10 +29,10 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 8/3/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 8/3/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -52,7 +52,7 @@ import okhttp3.Response;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-public class BREventManager implements BreadApp.OnAppBackgrounded {
+public class BREventManager implements WeyApp.OnAppBackgrounded {
     private static final String TAG = BREventManager.class.getName();
 
     private static BREventManager instance;
@@ -61,7 +61,7 @@ public class BREventManager implements BreadApp.OnAppBackgrounded {
 
     private BREventManager() {
         sessionId = UUID.randomUUID().toString();
-        BreadApp.addOnBackgroundedListener(this);
+        WeyApp.addOnBackgroundedListener(this);
     }
 
     public static BREventManager getInstance() {
@@ -111,7 +111,7 @@ public class BREventManager implements BreadApp.OnAppBackgrounded {
 //            Log.e(TAG, "saveEvents: insert json to array: " + obj);
             array.put(obj);
         }
-        Context app = BreadApp.getBreadContext();
+        Context app = WeyApp.getWeyContext();
         if (app != null) {
             String fileName = app.getFilesDir().getAbsolutePath() + "/events/" + UUID.randomUUID().toString();
             writeEventsToDisk(fileName, array.toString());
@@ -122,7 +122,7 @@ public class BREventManager implements BreadApp.OnAppBackgrounded {
 
     private void pushToServer() {
 //        Log.d(TAG, "pushToServer");
-        Context app = BreadApp.getBreadContext();
+        Context app = WeyApp.getWeyContext();
         if (app != null) {
             List<JSONArray> arrs = getEventsFromDisk(app);
             int fails = 0;

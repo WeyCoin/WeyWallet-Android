@@ -1,4 +1,4 @@
-package com.breadwallet.tools.manager;
+package com.weywallet.tools.manager;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,15 +6,15 @@ import android.os.Handler;
 import android.os.NetworkOnMainThreadException;
 import android.util.Log;
 
-import com.breadwallet.BreadApp;
-import com.breadwallet.presenter.activities.util.ActivityUTILS;
-import com.breadwallet.presenter.entities.CurrencyEntity;
-import com.breadwallet.tools.sqlite.CurrencyDataSource;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
-import com.breadwallet.wallet.wallets.bitcoin.WalletBitcoinManager;
+import com.weywallet.WeyApp;
+import com.weywallet.presenter.activities.util.ActivityUTILS;
+import com.weywallet.presenter.entities.CurrencyEntity;
+import com.weywallet.tools.sqlite.CurrencyDataSource;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.wallet.wallets.weycoin.WalletWeyCoinManager;
 import com.platform.APIClient;
 
 import org.json.JSONArray;
@@ -40,10 +40,10 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 7/22/15.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 7/22/15.
+ * Copyright (c) 2016 weywallet LLC
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -138,7 +138,7 @@ public class BRApiManager {
                         BRExecutor.getInstance().forLightWeightBackgroundTasks().execute(new Runnable() {
                             @Override
                             public void run() {
-                                if (BreadApp.isAppInBackground(context)) {
+                                if (WeyApp.isAppInBackground(context)) {
                                     Log.e(TAG, "doInBackground: Stopping timer, no activity on.");
                                     stopTimerTask();
                                 }
@@ -174,7 +174,7 @@ public class BRApiManager {
     }
 
     public static JSONArray fetchRates(Activity app, BaseWalletManager walletManager) {
-        String url = "https://" + BreadApp.HOST + "/rates?currency=" + walletManager.getIso(app);
+        String url = "https://" + WeyApp.HOST + "/rates?currency=" + walletManager.getIso(app);
         String jsonString = urlGET(app, url);
         JSONArray jsonArray = null;
         if (jsonString == null) {
@@ -191,7 +191,7 @@ public class BRApiManager {
     }
 
     public static JSONArray backupFetchRates(Activity app, BaseWalletManager walletManager) {
-        if (!walletManager.getIso(app).equalsIgnoreCase(WalletBitcoinManager.getInstance(app).getIso(app))) {
+        if (!walletManager.getIso(app).equalsIgnoreCase(WalletWeyCoinManager.getInstance(app).getIso(app))) {
             //todo add backup for BCH
             return null;
         }
@@ -222,7 +222,7 @@ public class BRApiManager {
             Log.e(TAG, "urlGET: network on main thread");
             throw new RuntimeException("network on main thread");
         }
-        Map<String, String> headers = BreadApp.getBreadHeaders();
+        Map<String, String> headers = WeyApp.getWeyHeaders();
 
         Request.Builder builder = new Request.Builder()
                 .url(myURL)

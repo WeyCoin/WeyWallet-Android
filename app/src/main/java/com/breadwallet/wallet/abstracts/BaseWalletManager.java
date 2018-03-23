@@ -1,25 +1,25 @@
-package com.breadwallet.wallet.abstracts;
+package com.weywallet.wallet.abstracts;
 
 import android.content.Context;
 
-import com.breadwallet.core.BRCoreAddress;
-import com.breadwallet.core.BRCoreMerkleBlock;
-import com.breadwallet.core.BRCorePeer;
-import com.breadwallet.core.BRCorePeerManager;
-import com.breadwallet.core.BRCoreTransaction;
-import com.breadwallet.core.BRCoreWallet;
-import com.breadwallet.presenter.entities.CurrencyEntity;
-import com.breadwallet.presenter.entities.TxUiHolder;
-import com.breadwallet.wallet.wallets.configs.WalletUiConfiguration;
+import com.weywallet.core.BRCoreAddress;
+import com.weywallet.core.BRCoreMerkleBlock;
+import com.weywallet.core.BRCorePeer;
+import com.weywallet.core.BRCorePeerManager;
+import com.weywallet.core.BRCoreTransaction;
+import com.weywallet.core.BRCoreWallet;
+import com.weywallet.presenter.entities.CurrencyEntity;
+import com.weywallet.presenter.entities.TxUiHolder;
+import com.weywallet.wallet.wallets.configs.WalletUiConfiguration;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 1/22/18.
- * Copyright (c) 2018 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 1/22/18.
+ * Copyright (c) 2018 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -84,16 +84,16 @@ public interface BaseWalletManager {
     //init the current wallet
     boolean connectWallet(Context app);
 
-    //get the currency symbol e.g. Bitcoin - ₿, Ether - Ξ
+    //get the currency symbol e.g. WeyCoin - ₿, Ether - Ξ
     String getSymbol(Context app);
 
-    //get the currency denomination e.g. Bitcoin - BTC, Ether - ETH
+    //get the currency denomination e.g. WeyCoin - BTC, Ether - ETH
     String getIso(Context app);
 
-    //get the currency scheme (bitcoin or bitcoincash)
+    //get the currency scheme (weycoin or weycoincash)
     String getScheme(Context app);
 
-    //get the currency name e.g. Bitcoin
+    //get the currency name e.g. WeyCoin
     String getName(Context app);
 
     //get the currency denomination e.g. BCH, mBCH, Bits

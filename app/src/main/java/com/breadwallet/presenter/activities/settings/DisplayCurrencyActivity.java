@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities.settings;
+package com.weywallet.presenter.activities.settings;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,18 +17,18 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.breadwallet.R;
-import com.breadwallet.core.test.BRWalletManager;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.entities.CurrencyEntity;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.manager.FontManager;
-import com.breadwallet.tools.sqlite.CurrencyDataSource;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.CurrencyUtils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.R;
+import com.weywallet.core.test.BRWalletManager;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.entities.CurrencyEntity;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.manager.FontManager;
+import com.weywallet.tools.sqlite.CurrencyDataSource;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.CurrencyUtils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
 
 import org.eclipse.jetty.util.StringUtil;
 

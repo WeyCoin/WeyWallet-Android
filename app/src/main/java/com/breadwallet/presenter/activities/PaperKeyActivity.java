@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities;
+package com.weywallet.presenter.activities;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -15,15 +15,15 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.customviews.BRDialogView;
-import com.breadwallet.presenter.fragments.FragmentPhraseWord;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.manager.BRReportsManager;
-import com.breadwallet.tools.security.PostAuth;
-import com.breadwallet.tools.util.Utils;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.customviews.BRDialogView;
+import com.weywallet.presenter.fragments.FragmentPhraseWord;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.manager.BRReportsManager;
+import com.weywallet.tools.security.PostAuth;
+import com.weywallet.tools.util.Utils;
 
 import java.util.Locale;
 
@@ -86,7 +86,7 @@ public class PaperKeyActivity extends BRActivity {
             @Override
             public void onClick(View v) {
                 if (!BRAnimator.isClickAllowed()) return;
-                BRAnimator.startBreadActivity(PaperKeyActivity.this, false);
+                BRAnimator.startWeyActivity(PaperKeyActivity.this, false);
                 if (!isDestroyed()) finish();
             }
         });
@@ -114,7 +114,7 @@ public class PaperKeyActivity extends BRActivity {
                             brDialogView.dismissWithAnimation();
                         }
                     }, null, null, 0);
-            BRReportsManager.reportBug(new IllegalArgumentException("Paper Key error, please contact support at breadwallet.com: " + wordArray.length), true);
+            BRReportsManager.reportBug(new IllegalArgumentException("Paper Key error, please contact support at weywallet.com: " + wordArray.length), true);
         } else {
             if (wordArray.length != 12) {
                 BRReportsManager.reportBug(new IllegalArgumentException("Wrong number of paper keys: " + wordArray.length + ", lang: " + Locale.getDefault().getLanguage()), true);

@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         testInstrumentationRunner = 'android.support.test.runner.AndroidJUnitRunner'
-        applicationId = 'com.breadwallet'
+        applicationId = 'com.weywallet'
         minSdkVersion 23
         targetSdkVersion 26
         versionCode 201
@@ -52,7 +52,7 @@ android {
 
     productFlavors {
         brd {
-            applicationId = "com.breadwallet"
+            applicationId = "com.weywallet"
             dimension "mode"
             resValue "string", "app_name", "BRD"
             buildConfigField "boolean", "BITCOIN_TESTNET", "false"
@@ -69,7 +69,7 @@ android {
         }
 
         brdTestnet {
-            applicationId = "com.breadtestnet"
+            applicationId = "com.weytestnet"
             dimension "mode"
             resValue "string", "app_name", "BRD-testnet"
             buildConfigField "boolean", "BITCOIN_TESTNET", "true"
@@ -128,7 +128,7 @@ android {
         }
 
     }
-    sourceSets { main { java.srcDirs = ['src/main/java', 'src/main/jni/breadwallet-core/Java/root'] } }
+    sourceSets { main { java.srcDirs = ['src/main/java', 'src/main/jni/weywallet-core/Java/root'] } }
 }
 
 task copyResDirectoryToClasses(type: Copy) {

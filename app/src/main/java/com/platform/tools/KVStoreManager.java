@@ -3,14 +3,14 @@ package com.platform.tools;
 import android.content.Context;
 import android.util.Log;
 
-import com.breadwallet.core.BRCoreTransaction;
-import com.breadwallet.tools.crypto.CryptoHelper;
-import com.breadwallet.tools.manager.BRReportsManager;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.sqlite.CurrencyDataSource;
-import com.breadwallet.tools.util.BRCompressor;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.core.BRCoreTransaction;
+import com.weywallet.tools.crypto.CryptoHelper;
+import com.weywallet.tools.manager.BRReportsManager;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.sqlite.CurrencyDataSource;
+import com.weywallet.tools.util.BRCompressor;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
 import com.platform.APIClient;
 import com.platform.entities.TxMetaData;
 import com.platform.entities.WalletInfo;
@@ -29,10 +29,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 6/22/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 6/22/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -117,7 +117,7 @@ public class KVStoreManager {
 
         //sanity check
         if (old.classVersion == 0) old.classVersion = 1;
-        if (old.name != null) old.name = "My Bread";
+        if (old.name != null) old.name = "My Wey";
 
         JSONObject obj = new JSONObject();
         byte[] result;

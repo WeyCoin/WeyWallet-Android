@@ -1,4 +1,4 @@
-package com.breadwallet.tools.util;
+package com.weywallet.tools.util;
 
 import android.Manifest;
 import android.app.Activity;
@@ -18,7 +18,7 @@ import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
-import com.breadwallet.presenter.activities.intro.IntroActivity;
+import com.weywallet.presenter.activities.intro.IntroActivity;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -31,10 +31,10 @@ import static android.content.Context.FINGERPRINT_SERVICE;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 6/21/16.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 6/21/16.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -205,8 +205,8 @@ public class Utils {
             }
         }
         String release = Build.VERSION.RELEASE;
-//        return String.format("%s/%d %s %s/%s", "Bread", versionNumber, cfnetwork, "Android", release);
-        return "Bread/" + String.valueOf(versionNumber) + " " + cfnetwork + " Android/" + release;
+//        return String.format("%s/%d %s %s/%s", "Wey", versionNumber, cfnetwork, "Android", release);
+        return "Wey/" + String.valueOf(versionNumber) + " " + cfnetwork + " Android/" + release;
     }
 
     public static String reverseHex(String hex) {

@@ -1,4 +1,4 @@
-package com.breadwallet.tools.security;
+package com.weywallet.tools.security;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
@@ -10,27 +10,27 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.DisabledActivity;
-import com.breadwallet.presenter.activities.util.ActivityUTILS;
-import com.breadwallet.presenter.customviews.BRDialogView;
-import com.breadwallet.presenter.fragments.FragmentFingerprint;
-import com.breadwallet.presenter.fragments.FragmentPin;
-import com.breadwallet.presenter.interfaces.BRAuthCompletion;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.DisabledActivity;
+import com.weywallet.presenter.activities.util.ActivityUTILS;
+import com.weywallet.presenter.customviews.BRDialogView;
+import com.weywallet.presenter.fragments.FragmentFingerprint;
+import com.weywallet.presenter.fragments.FragmentPin;
+import com.weywallet.presenter.interfaces.BRAuthCompletion;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
 
 import java.util.concurrent.TimeUnit;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 8/20/15.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 8/20/15.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -232,7 +232,7 @@ public class AuthManager {
         final Activity app = (Activity) context;
 
         FragmentFingerprint fingerprintFragment;
-        FragmentPin breadPin;
+        FragmentPin weyPin;
 
         if (keyguardManager.isKeyguardSecure()) {
             if (useFingerPrint) {
@@ -249,15 +249,15 @@ public class AuthManager {
                 if (!app.isDestroyed())
                     transaction.commit();
             } else {
-                breadPin = new FragmentPin();
+                weyPin = new FragmentPin();
                 Bundle args = new Bundle();
                 args.putString("title", title);
                 args.putString("message", message);
-                breadPin.setArguments(args);
-                breadPin.setCompletion(completion);
+                weyPin.setArguments(args);
+                weyPin.setCompletion(completion);
                 FragmentTransaction transaction = app.getFragmentManager().beginTransaction();
                 transaction.setCustomAnimations(0, 0, 0, R.animator.plain_300);
-                transaction.add(android.R.id.content, breadPin, breadPin.getClass().getName());
+                transaction.add(android.R.id.content, weyPin, weyPin.getClass().getName());
                 transaction.addToBackStack(null);
                 if (!app.isDestroyed()) {
                     transaction.commit();

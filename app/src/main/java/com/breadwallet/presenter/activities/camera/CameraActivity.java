@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities.camera;
+package com.weywallet.presenter.activities.camera;
 
 import android.Manifest;
 import android.app.Activity;
@@ -42,10 +42,10 @@ import android.view.TextureView;
 import android.view.View;
 import android.widget.Toast;
 
-import com.breadwallet.BreadApp;
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.tools.threads.executor.BRExecutor;
+import com.weywallet.WeyApp;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.tools.threads.executor.BRExecutor;
 import com.platform.middlewares.plugins.CameraPlugin;
 
 import java.io.File;
@@ -60,10 +60,10 @@ import java.util.concurrent.TimeUnit;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 3/29/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 3/29/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -895,7 +895,7 @@ public class CameraActivity extends BRActivity implements View.OnClickListener, 
                         public void run() {
                             try {
                                 Thread.sleep(1000);
-                                CameraPlugin.handleCameraImageTaken(BreadApp.getBreadContext(), bytes);
+                                CameraPlugin.handleCameraImageTaken(WeyApp.getWeyContext(), bytes);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }

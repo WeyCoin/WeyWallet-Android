@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.breadwallet.tools.qrcode.xzing;
+package com.weywallet.tools.qrcode.xzing;
 
 import android.content.Context;
 import android.graphics.Point;
@@ -22,8 +22,8 @@ import android.hardware.Camera;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
-import com.breadwallet.tools.qrcode.xzing.open.OpenCamera;
-import com.breadwallet.tools.qrcode.xzing.open.OpenCameraInterface;
+import com.weywallet.tools.qrcode.xzing.open.OpenCamera;
+import com.weywallet.tools.qrcode.xzing.open.OpenCameraInterface;
 import com.google.zxing.PlanarYUVLuminanceSource;
 
 import java.io.IOException;

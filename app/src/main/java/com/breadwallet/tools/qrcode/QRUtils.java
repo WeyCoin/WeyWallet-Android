@@ -1,4 +1,4 @@
-package com.breadwallet.tools.qrcode;
+package com.weywallet.tools.qrcode;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,7 +12,7 @@ import android.view.Display;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.breadwallet.wallet.WalletsMaster;
+import com.weywallet.wallet.WalletsMaster;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -30,10 +30,10 @@ import static android.graphics.Color.BLACK;
 import static android.graphics.Color.WHITE;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 3/10/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 3/10/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -118,8 +118,8 @@ public class QRUtils {
 //
 //    }
 
-    public static boolean generateQR(Context ctx, String bitcoinURL, ImageView qrcode) {
-        if (qrcode == null || bitcoinURL == null || bitcoinURL.isEmpty()) return false;
+    public static boolean generateQR(Context ctx, String weycoinURL, ImageView qrcode) {
+        if (qrcode == null || weycoinURL == null || weycoinURL.isEmpty()) return false;
         WindowManager manager = (WindowManager) ctx.getSystemService(Activity.WINDOW_SERVICE);
         Display display = manager.getDefaultDisplay();
         Point point = new Point();
@@ -129,7 +129,7 @@ public class QRUtils {
         int smallerDimension = width < height ? width : height;
         smallerDimension = (int) (smallerDimension * 0.45f);
         Bitmap bitmap = null;
-        bitmap = QRUtils.encodeAsBitmap(bitcoinURL, smallerDimension);
+        bitmap = QRUtils.encodeAsBitmap(weycoinURL, smallerDimension);
         //qrcode.setPadding(1, 1, 1, 1);
         //qrcode.setBackgroundResource(R.color.gray);
         if (bitmap == null) return false;
@@ -148,22 +148,22 @@ public class QRUtils {
         return null;
     }
 
-    public static void share(String via, Activity app, String bitcoinUri) {
+    public static void share(String via, Activity app, String weycoinUri) {
         if (app == null) {
             Log.e(TAG, "share: app is null");
             return;
         }
 
 
-        File file = saveToExternalStorage(QRUtils.encodeAsBitmap(bitcoinUri, 500), app);
+        File file = saveToExternalStorage(QRUtils.encodeAsBitmap(weycoinUri, 500), app);
         //Uri uri = Uri.fromFile(file);
-        Uri uri = FileProvider.getUriForFile(app, "com.breadwallet", file);
+        Uri uri = FileProvider.getUriForFile(app, "com.weywallet", file);
 
         Intent intent = new Intent();
         if (via.equalsIgnoreCase("sms:")) {
             intent.setAction(Intent.ACTION_VIEW);
             intent.setData(Uri.parse("sms:"));
-            intent.putExtra("sms_body", bitcoinUri);
+            intent.putExtra("sms_body", weycoinUri);
             intent.putExtra("exit_on_sent", true);
             app.startActivity(intent);
 
@@ -171,7 +171,7 @@ public class QRUtils {
             intent.setAction(Intent.ACTION_SEND);
             intent.setType("image/*");
             intent.putExtra(Intent.EXTRA_SUBJECT, WalletsMaster.getInstance(app).getCurrentWallet(app).getName(app) + " Address");
-            intent.putExtra(Intent.EXTRA_TEXT, bitcoinUri);
+            intent.putExtra(Intent.EXTRA_TEXT, weycoinUri);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             if (uri != null) {
                 intent.putExtra(Intent.EXTRA_STREAM, uri);

@@ -1,4 +1,4 @@
-package com.breadwallet.tools.security;
+package com.weywallet.tools.security;
 
 import android.app.Activity;
 import android.app.KeyguardManager;
@@ -18,19 +18,19 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 
-import com.breadwallet.R;
-import com.breadwallet.tools.exceptions.BRKeystoreErrorException;
-import com.breadwallet.presenter.customviews.BRDialogView;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.manager.BRReportsManager;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.BytesUtil;
-import com.breadwallet.tools.util.TypesConverter;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
+import com.weywallet.R;
+import com.weywallet.tools.exceptions.BRKeystoreErrorException;
+import com.weywallet.presenter.customviews.BRDialogView;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.manager.BRReportsManager;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.BytesUtil;
+import com.weywallet.tools.util.TypesConverter;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
 import com.platform.entities.WalletInfo;
 import com.platform.tools.KVStoreManager;
 
@@ -66,10 +66,10 @@ import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 9/29/15.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 9/29/15.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

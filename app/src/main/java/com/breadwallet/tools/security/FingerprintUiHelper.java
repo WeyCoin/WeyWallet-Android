@@ -14,9 +14,9 @@
  * limitations under the License 
  */
 
-package com.breadwallet.tools.security;
+package com.weywallet.tools.security;
 
-import com.breadwallet.R;
+import com.weywallet.R;
 
 import android.content.Context;
 import android.hardware.fingerprint.FingerprintManager;

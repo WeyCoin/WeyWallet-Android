@@ -1,13 +1,13 @@
-package com.breadwallet.tools.util;
+package com.weywallet.tools.util;
 
 import java.math.RoundingMode;
 import java.util.concurrent.TimeUnit;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 2/16/16.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 2/16/16.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -69,7 +69,7 @@ public class BRConstants {
 //    public static final String FEE_KB_PREFS = "feeKb";
 //    public static final String ECONOMY_FEE_KB_PREFS = "EconomyFeeKb";
     public static final String LITTLE_CIRCLE = "\u2022";
-    public static String SUPPORT_EMAIL = "support@breadwallet.com";
+    public static String SUPPORT_EMAIL = "support@weywallet.com";
 
     public static final int ONE_BITCOIN = 100000000;
     public static final int HUNDRED_BITS = 10000000;
@@ -82,7 +82,7 @@ public class BRConstants {
     public static final int CURRENT_UNIT_BITCOINS = 2;
 
     public static final String symbolBits = "\u0180";
-    public static final String symbolBitcoin = "\u0243";
+    public static final String symbolWeyCoin = "\u0243";
 
     public static final long PASS_CODE_TIME_LIMIT = TimeUnit.MILLISECONDS.convert(6, TimeUnit.DAYS);
 
@@ -102,9 +102,9 @@ public class BRConstants {
     public static final String fingerprintSpendingLimit = "fingerprint-spending-limit";
     public static final String transactionDetails = "transaction-details";
 //    public static final String manageWallet = "manage-wallet";
-    public static final String receive = "receive-bitcoin";
+    public static final String receive = "receive-weycoin";
     public static final String requestAmount = "request-amount";
-    public static final String send = "send-bitcoin";
+    public static final String send = "send-weycoin";
     public static final String walletDisabled = "wallet-disabled";
     public static final String resetPinWithPaperKey = "reset-pin-paper-key";
     public static final String setPin = "set-pin";
@@ -114,7 +114,7 @@ public class BRConstants {
     public static final String startView = "start-view";
     public static final String wipeWallet = "wipe-wallet";
     public static final String loopBug = "android-loop-bug";
-    public static final String bchFaq = "bitcoin-cash";
+    public static final String bchFaq = "weycoin-cash";
 
     private BRConstants() {
     }

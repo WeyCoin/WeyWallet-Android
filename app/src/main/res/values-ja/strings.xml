@@ -29,7 +29,7 @@
   <!-- Error alert title -->
   <string name="Alert.error">エラー</string>
   <!-- Keystore error -->
-  <string name="Alert.keystore.generic.android">Android OSのKeystoreに問題があります。support@breadwallet.com にお問い合わせください。</string>
+  <string name="Alert.keystore.generic.android">Android OSのKeystoreに問題があります。support@weywallet.com にお問い合わせください。</string>
   <!-- KeyStore error, keys are invalidated -->
   <string name="Alert.keystore.invalidated.android">お使いのAndroidロック画面が無効にされたため、暗号化されたブレッドのデータはつい最近無効になりました。</string>
   <!-- Keystore error title -->
@@ -84,7 +84,7 @@
   <string name="BCH.txHashHeader">BCHのトランザクションID</string>
   <!-- Approve button label -->
   <string name="BitID.approve">承認する</string>
-  <!-- <sitename> is requesting authentication using your bitcoin wallet -->
+  <!-- <sitename> is requesting authentication using your weycoin wallet -->
   <string name="BitID.authenticationRequest">%1$sがビットコインウォレットを使っての認証を求めています</string>
   <!-- Deny button label -->
   <string name="BitID.deny">拒否する</string>
@@ -136,8 +136,8 @@
   <string name="ConfirmPaperPhrase.label">すべてが正しく書き留められていることを確認するため、紙の鍵に記入した下記のフレーズを入力してください。</string>
   <!-- Word label eg. Word #1, Word #2 -->
   <string name="ConfirmPaperPhrase.word">フレーズ #%1$s</string>
-  <!-- Bitcoin denomination picker label -->
-  <string name="DefaultCurrency.bitcoinLabel">ビットコインの表示単位</string>
+  <!-- WeyCoin denomination picker label -->
+  <string name="DefaultCurrency.weycoinLabel">ビットコインの表示単位</string>
   <!-- Exchange rate label -->
   <string name="DefaultCurrency.rateLabel">為替レート</string>
   <!-- Email unavailable alert title -->
@@ -232,7 +232,7 @@
   <string name="ManageWallet.textFeildLabel">ウォレットの名前</string>
   <!-- Manage wallet modal title -->
   <string name="ManageWallet.title">ウォレットを管理</string>
-  <!-- Buy bitcoin title -->
+  <!-- Buy weycoin title -->
   <string name="MenuButton.buy">ビットコインを購入</string>
   <!-- Menu button title -->
   <string name="MenuButton.lock">ウォレットにロックを設定する</string>
@@ -366,7 +366,7 @@
   <string name="RecoverWallet.subheader_reset_pin">PINコードをリセットするには、紙の鍵の中からこのフレーズを下記ボックスの中に入力してください。</string>
   <!-- No amount entered error message. -->
   <string name="RequestAnAmount.noAmount">初めに数量を入力してください。</string>
-  <!-- Request a specific amount of bitcoin -->
+  <!-- Request a specific amount of weycoin -->
   <string name="RequestAnAmount.title">金額のリクエスト</string>
   <!-- Alert action button label -->
   <string name="ReScan.alertAction">同期</string>
@@ -390,7 +390,7 @@
   <string name="ReScan.subheader1">予定時刻</string>
   <!-- Subheader label -->
   <string name="ReScan.subheader2">いつ同期しますか?</string>
-  <!-- Scan bitcoin address camera flash toggle -->
+  <!-- Scan weycoin address camera flash toggle -->
   <string name="Scanner.flashButtonLabel">カメラのフラッシュ</string>
   <!-- Complete filter label -->
   <string name="Search.complete">完了</string>
@@ -484,7 +484,7 @@
   <string name="Settings.currency">表示される通貨</string>
   <!-- Join Early access label -->
   <string name="Settings.earlyAccess">早期アクセスに参加</string>
-  <!-- Are you enjoying bread alert message body -->
+  <!-- Are you enjoying wey alert message body -->
   <string name="Settings.enjoying">ブレッドをお楽しみいただいていますか?</string>
   <!-- Import wallet label -->
   <string name="Settings.importTitle">ウォレットをインポート</string>
@@ -705,7 +705,7 @@
   <!-- Updating webview message -->
   <string name="Webview.updating">更新中...</string>
   <!-- Welcome screen text. (?) will be replaced with the help icon users should look for. -->
-  <string name="Welcome.body">Breadwalletは新しい見た目と新機能を備えて、BRDという名前に生まれ変わりました。\n\nヘルプをご覧になるには、ほとんどの画面の右上にある(?)をお探しください。</string>
+  <string name="Welcome.body">Weywalletは新しい見た目と新機能を備えて、BRDという名前に生まれ変わりました。\n\nヘルプをご覧になるには、ほとんどの画面の右上にある(?)をお探しください。</string>
   <!-- Top title of welcome screen -->
   <string name="Welcome.title">BRDへようこそ！</string>
   <!-- Wipe wallet alert message -->

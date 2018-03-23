@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities.settings;
+package com.weywallet.presenter.activities.settings;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,15 +15,15 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.entities.BRSettingsItem;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.entities.BRSettingsItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.breadwallet.R.layout.settings_list_item;
-import static com.breadwallet.R.layout.settings_list_section;
+import static com.weywallet.R.layout.settings_list_item;
+import static com.weywallet.R.layout.settings_list_section;
 
 public class AdvancedActivity extends BRActivity {
     private static final String TAG = AdvancedActivity.class.getName();
@@ -85,7 +85,7 @@ public class AdvancedActivity extends BRActivity {
 
             TextView title = v.findViewById(R.id.item_title);
             if (position == 1)
-                title.setText("Bitcoin Nodes");
+                title.setText("WeyCoin Nodes");
             return v;
 
         }

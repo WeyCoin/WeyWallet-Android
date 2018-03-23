@@ -1,9 +1,9 @@
-package com.breadwallet.presenter.activities.settings;
+package com.weywallet.presenter.activities.settings;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.breadwallet.R;
+import com.weywallet.R;
 
 
 /**

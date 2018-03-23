@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities;
+package com.weywallet.presenter.activities;
 
 import android.animation.LayoutTransition;
 import android.app.Activity;
@@ -29,32 +29,32 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ViewFlipper;
 
-import com.breadwallet.R;
-import com.breadwallet.core.BRCorePeer;
-import com.breadwallet.presenter.activities.settings.WebViewActivity;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.customviews.BRButton;
-import com.breadwallet.presenter.customviews.BRDialogView;
-import com.breadwallet.presenter.customviews.BRNotificationBar;
-import com.breadwallet.presenter.customviews.BRSearchBar;
-import com.breadwallet.presenter.customviews.BRText;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.manager.FontManager;
-import com.breadwallet.tools.manager.InternetManager;
-import com.breadwallet.tools.manager.SyncManager;
-import com.breadwallet.tools.manager.TxManager;
-import com.breadwallet.tools.sqlite.CurrencyDataSource;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.CurrencyUtils;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
-import com.breadwallet.wallet.abstracts.OnTxListModified;
-import com.breadwallet.wallet.abstracts.SyncListener;
-import com.breadwallet.wallet.wallets.util.CryptoUriParser;
+import com.weywallet.R;
+import com.weywallet.core.BRCorePeer;
+import com.weywallet.presenter.activities.settings.WebViewActivity;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.customviews.BRButton;
+import com.weywallet.presenter.customviews.BRDialogView;
+import com.weywallet.presenter.customviews.BRNotificationBar;
+import com.weywallet.presenter.customviews.BRSearchBar;
+import com.weywallet.presenter.customviews.BRText;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.manager.FontManager;
+import com.weywallet.tools.manager.InternetManager;
+import com.weywallet.tools.manager.SyncManager;
+import com.weywallet.tools.manager.TxManager;
+import com.weywallet.tools.sqlite.CurrencyDataSource;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.CurrencyUtils;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.wallet.abstracts.OnTxListModified;
+import com.weywallet.wallet.abstracts.SyncListener;
+import com.weywallet.wallet.wallets.util.CryptoUriParser;
 import com.platform.HTTPServer;
 
 import java.math.BigDecimal;
@@ -62,8 +62,8 @@ import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import static com.breadwallet.tools.animation.BRAnimator.t1Size;
-import static com.breadwallet.tools.animation.BRAnimator.t2Size;
+import static com.weywallet.tools.animation.BRAnimator.t1Size;
+import static com.weywallet.tools.animation.BRAnimator.t2Size;
 
 /**
  * Created by byfieldj on 1/16/18.
@@ -116,7 +116,7 @@ public class WalletActivity extends BRActivity implements InternetManager.Connec
         mCurrencyPriceUsd = findViewById(R.id.currency_usd_price);
         mBalancePrimary = findViewById(R.id.balance_primary);
         mBalanceSecondary = findViewById(R.id.balance_secondary);
-        mToolbar = findViewById(R.id.bread_bar);
+        mToolbar = findViewById(R.id.wey_bar);
         mBackButton = findViewById(R.id.back_icon);
         mSendButton = findViewById(R.id.send_button);
         mReceiveButton = findViewById(R.id.receive_button);
@@ -124,7 +124,7 @@ public class WalletActivity extends BRActivity implements InternetManager.Connec
         barFlipper = findViewById(R.id.tool_bar_flipper);
         searchBar = findViewById(R.id.search_bar);
         mSearchIcon = findViewById(R.id.search_icon);
-        toolBarConstraintLayout = findViewById(R.id.bread_toolbar);
+        toolBarConstraintLayout = findViewById(R.id.wey_toolbar);
         mSwap = findViewById(R.id.swap);
         mBalanceLabel = findViewById(R.id.balance_label);
         mProgressLabel = findViewById(R.id.syncing_label);

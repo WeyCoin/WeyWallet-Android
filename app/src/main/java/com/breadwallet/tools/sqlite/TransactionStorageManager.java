@@ -1,11 +1,11 @@
-package com.breadwallet.tools.sqlite;
+package com.weywallet.tools.sqlite;
 
 
 import android.content.Context;
 import android.util.Log;
 
-import com.breadwallet.presenter.entities.BRTransactionEntity;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.presenter.entities.BRTransactionEntity;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
 
 import java.util.List;
 

@@ -1,34 +1,34 @@
-package com.breadwallet.tools.threads;
+package com.weywallet.tools.threads;
 
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.breadwallet.BreadApp;
-import com.breadwallet.R;
-import com.breadwallet.core.BRCoreAddress;
-import com.breadwallet.core.BRCorePaymentProtocolRequest;
-import com.breadwallet.core.BRCoreTransaction;
-import com.breadwallet.core.BRCoreTransactionOutput;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.customviews.BRDialogView;
-import com.breadwallet.tools.exceptions.CertificateChainNotFound;
-import com.breadwallet.presenter.customviews.BRToast;
-import com.breadwallet.presenter.interfaces.BRAuthCompletion;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.security.AuthManager;
-import com.breadwallet.tools.security.PostAuth;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.CurrencyUtils;
-import com.breadwallet.tools.security.X509CertificateValidator;
-import com.breadwallet.tools.util.BytesUtil;
-import com.breadwallet.tools.util.CustomLogger;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.WeyApp;
+import com.weywallet.R;
+import com.weywallet.core.BRCoreAddress;
+import com.weywallet.core.BRCorePaymentProtocolRequest;
+import com.weywallet.core.BRCoreTransaction;
+import com.weywallet.core.BRCoreTransactionOutput;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.customviews.BRDialogView;
+import com.weywallet.tools.exceptions.CertificateChainNotFound;
+import com.weywallet.presenter.customviews.BRToast;
+import com.weywallet.presenter.interfaces.BRAuthCompletion;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.security.AuthManager;
+import com.weywallet.tools.security.PostAuth;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.CurrencyUtils;
+import com.weywallet.tools.security.X509CertificateValidator;
+import com.weywallet.tools.util.BytesUtil;
+import com.weywallet.tools.util.CustomLogger;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -42,10 +42,10 @@ import java.util.Locale;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 5/9/16.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 5/9/16.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -77,13 +77,13 @@ public class PaymentProtocolTask extends AsyncTask<String, String, String> {
     //params[0] = uri, params[1] = label
     @Override
     protected String doInBackground(String... params) {
-        app = (Activity) BreadApp.getBreadContext();
+        app = (Activity) WeyApp.getWeyContext();
         InputStream in;
         try {
             Log.e(TAG, "the uri: " + params[0]);
             URL url = new URL(params[0]);
             urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setRequestProperty("Accept", "application/bitcoin-paymentrequest");
+            urlConnection.setRequestProperty("Accept", "application/weycoin-paymentrequest");
             urlConnection.setConnectTimeout(3000);
             urlConnection.setReadTimeout(3000);
             urlConnection.setUseCaches(false);
@@ -355,12 +355,12 @@ public class PaymentProtocolTask extends AsyncTask<String, String, String> {
 
                 double minOutput = wallet.getWallet().getMinOutputAmount();
                 if (wallet.getWallet().getTransactionAmount(tx) < minOutput) {
-                    final String bitcoinMinMessage = String.format(Locale.getDefault(), app.getString(R.string.PaymentProtocol_Errors_smallTransaction),
+                    final String weycoinMinMessage = String.format(Locale.getDefault(), app.getString(R.string.PaymentProtocol_Errors_smallTransaction),
                             BRConstants.symbolBits + new BigDecimal(minOutput).divide(new BigDecimal("100")));
                     app.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            BRDialog.showCustomDialog(app, app.getString(R.string.PaymentProtocol_Errors_badPaymentRequest), bitcoinMinMessage, app.getString(R.string.Button_ok), null, new BRDialogView.BROnClickListener() {
+                            BRDialog.showCustomDialog(app, app.getString(R.string.PaymentProtocol_Errors_badPaymentRequest), weycoinMinMessage, app.getString(R.string.Button_ok), null, new BRDialogView.BROnClickListener() {
                                 @Override
                                 public void onClick(BRDialogView brDialogView) {
                                     brDialogView.dismissWithAnimation();

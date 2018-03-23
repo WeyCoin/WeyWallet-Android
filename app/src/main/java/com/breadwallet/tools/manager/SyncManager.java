@@ -1,4 +1,4 @@
-package com.breadwallet.tools.manager;
+package com.weywallet.tools.manager;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -7,17 +7,17 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.ProgressBar;
 
-import com.breadwallet.tools.listeners.SyncReceiver;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.tools.listeners.SyncReceiver;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
 
 import java.util.concurrent.TimeUnit;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 9/19/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 9/19/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities.settings;
+package com.weywallet.presenter.activities.settings;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,17 +17,17 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.util.ActivityUTILS;
-import com.breadwallet.presenter.activities.intro.WriteDownActivity;
-import com.breadwallet.presenter.activities.UpdatePinActivity;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.entities.BRSecurityCenterItem;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.security.BRKeyStore;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.Utils;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.util.ActivityUTILS;
+import com.weywallet.presenter.activities.intro.WriteDownActivity;
+import com.weywallet.presenter.activities.UpdatePinActivity;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.entities.BRSecurityCenterItem;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.security.BRKeyStore;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +96,7 @@ public class SecurityCenterActivity extends BRActivity {
     public void onBackPressed() {
         super.onBackPressed();
         if (ActivityUTILS.isLast(this)) {
-            BRAnimator.startBreadActivity(this, false);
+            BRAnimator.startWeyActivity(this, false);
         } else {
             super.onBackPressed();
         }

@@ -1,4 +1,4 @@
-package com.breadwallet.tools.animation;
+package com.weywallet.tools.animation;
 
 import android.Manifest;
 import android.animation.Animator;
@@ -23,33 +23,33 @@ import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.HomeActivity;
-import com.breadwallet.presenter.activities.LoginActivity;
-import com.breadwallet.presenter.activities.WalletActivity;
-import com.breadwallet.presenter.activities.camera.ScanQRActivity;
-import com.breadwallet.presenter.activities.intro.IntroActivity;
-import com.breadwallet.presenter.customviews.BRDialogView;
-import com.breadwallet.presenter.entities.CryptoRequest;
-import com.breadwallet.presenter.entities.TxUiHolder;
-import com.breadwallet.presenter.fragments.FragmentGreetings;
-import com.breadwallet.presenter.fragments.FragmentMenu;
-import com.breadwallet.presenter.fragments.FragmentSignal;
-import com.breadwallet.presenter.fragments.FragmentReceive;
-import com.breadwallet.presenter.fragments.FragmentRequestAmount;
-import com.breadwallet.presenter.fragments.FragmentSend;
-import com.breadwallet.presenter.fragments.FragmentSupport;
-import com.breadwallet.presenter.fragments.FragmentTxDetails;
-import com.breadwallet.presenter.interfaces.BROnSignalCompletion;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.HomeActivity;
+import com.weywallet.presenter.activities.LoginActivity;
+import com.weywallet.presenter.activities.WalletActivity;
+import com.weywallet.presenter.activities.camera.ScanQRActivity;
+import com.weywallet.presenter.activities.intro.IntroActivity;
+import com.weywallet.presenter.customviews.BRDialogView;
+import com.weywallet.presenter.entities.CryptoRequest;
+import com.weywallet.presenter.entities.TxUiHolder;
+import com.weywallet.presenter.fragments.FragmentGreetings;
+import com.weywallet.presenter.fragments.FragmentMenu;
+import com.weywallet.presenter.fragments.FragmentSignal;
+import com.weywallet.presenter.fragments.FragmentReceive;
+import com.weywallet.presenter.fragments.FragmentRequestAmount;
+import com.weywallet.presenter.fragments.FragmentSend;
+import com.weywallet.presenter.fragments.FragmentSupport;
+import com.weywallet.presenter.fragments.FragmentTxDetails;
+import com.weywallet.presenter.interfaces.BROnSignalCompletion;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 7/13/15.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 7/13/15.
+ * Copyright (c) 2016 weywallet LLC
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -79,7 +79,7 @@ public class BRAnimator {
     public static float t2Size;
     public static boolean supportIsShowing;
 
-    public static void showBreadSignal(Activity activity, String title, String iconDescription, int drawableId, BROnSignalCompletion completion) {
+    public static void showWeySignal(Activity activity, String title, String iconDescription, int drawableId, BROnSignalCompletion completion) {
         fragmentSignal = new FragmentSignal();
         Bundle bundle = new Bundle();
         bundle.putString(FragmentSignal.TITLE, title);
@@ -390,14 +390,14 @@ public class BRAnimator {
             app.getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
 
-    public static void startBreadIfNotStarted(Activity app) {
+    public static void startWeyIfNotStarted(Activity app) {
         if (!(app instanceof HomeActivity))
-            startBreadActivity(app, false);
+            startWeyActivity(app, false);
     }
 
-    public static void startBreadActivity(Activity from, boolean auth) {
+    public static void startWeyActivity(Activity from, boolean auth) {
         if (from == null) return;
-        Log.e(TAG, "startBreadActivity: " + from.getClass().getName());
+        Log.e(TAG, "startWeyActivity: " + from.getClass().getName());
         Class toStart = auth ? LoginActivity.class : WalletActivity.class;
         Intent intent = new Intent(from, toStart);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

@@ -1,10 +1,10 @@
-package com.breadwallet.tools.sqlite;
+package com.weywallet.tools.sqlite;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 9/25/15.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 9/25/15.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -31,9 +31,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.breadwallet.presenter.entities.BRTransactionEntity;
-import com.breadwallet.tools.manager.BRReportsManager;
-import com.breadwallet.tools.util.BRConstants;
+import com.weywallet.presenter.entities.BRTransactionEntity;
+import com.weywallet.tools.manager.BRReportsManager;
+import com.weywallet.tools.util.BRConstants;
 
 import java.util.ArrayList;
 import java.util.List;

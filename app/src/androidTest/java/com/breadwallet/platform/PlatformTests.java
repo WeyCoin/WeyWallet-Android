@@ -1,14 +1,14 @@
-package com.breadwallet.platform;
+package com.weywallet.platform;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.util.Log;
 
-import com.breadwallet.BreadApp;
-import com.breadwallet.presenter.activities.settings.TestActivity;
-import com.breadwallet.tools.util.BRCompressor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.Utils;
+import com.weywallet.WeyApp;
+import com.weywallet.presenter.activities.settings.TestActivity;
+import com.weywallet.tools.util.BRCompressor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.Utils;
 import com.platform.APIClient;
 
 import org.apache.commons.io.IOUtils;
@@ -29,10 +29,10 @@ import okhttp3.Response;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 9/30/16.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 9/30/16.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -63,9 +63,9 @@ public class PlatformTests {
     // proto is the transport protocol to use for talking to the API (either http or https)
     private static final String PROTO = "https";
     // host is the server(s) on which the API is hosted
-//    private static final String HOST = "api.breadwallet.com";
+//    private static final String HOST = "api.weywallet.com";
     // convenience getter for the API endpoint
-    private static final String BASE_URL = PROTO + "://" + BreadApp.HOST;
+    private static final String BASE_URL = PROTO + "://" + WeyApp.HOST;
     //feePerKb url
     private static final String FEE_PER_KB_URL = "/v1/fee-per-kb";
     //token
@@ -124,7 +124,7 @@ public class PlatformTests {
         APIClient apiClient = APIClient.getInstance(mActivityRule.getActivity());
         Request request = new Request.Builder()
                 .get()
-                .url("https://s3.amazonaws.com/breadwallet-assets/bread-buy/7f5bc5c6cc005df224a6ea4567e508491acaffdc2e4769e5262a52f5b785e261.tar").build();
+                .url("https://s3.amazonaws.com/weywallet-assets/wey-buy/7f5bc5c6cc005df224a6ea4567e508491acaffdc2e4769e5262a52f5b785e261.tar").build();
         Response response = apiClient.sendRequest(request, false, 0);
         try {
             File bundleFile = new File(apiClient.getBundleResource(mActivityRule.getActivity(), BREAD_POINT + ".tar"));
@@ -148,20 +148,20 @@ public class PlatformTests {
 //
 //        Request request = new Request.Builder()
 //                .get()
-//                .url("https://s3.amazonaws.com/breadwallet-assets/bread-buy/bundle.tar").build();
+//                .url("https://s3.amazonaws.com/weywallet-assets/wey-buy/bundle.tar").build();
 //        Response response = apiClient.sendRequest(request, false, 0);
 //        byte[] bundleFileOldBytes = apiClient.writeBundleToFile(response);
 //
 //        request = new Request.Builder()
 //                .get()
-//                .url("https://s3.amazonaws.com/breadwallet-assets/bread-buy/bundle2.tar").build();
+//                .url("https://s3.amazonaws.com/weywallet-assets/wey-buy/bundle2.tar").build();
 //        response = apiClient.sendRequest(request, false, 0);
 //        File bundleFileLatest = new File(mActivityRule.getActivity().getFilesDir().getAbsolutePath() + String.format("/%s/%s.tar", BUNDLES, BREAD_POINT + "-test"));
 //        apiClient.writeBundleToFile(response);
 //
 //        request = new Request.Builder()
 //                .get()
-//                .url("https://s3.amazonaws.com/breadwallet-assets/bread-buy/bundle_bundle2.bspatch").build();
+//                .url("https://s3.amazonaws.com/weywallet-assets/wey-buy/bundle_bundle2.bspatch").build();
 //        response = apiClient.sendRequest(request, false, 0);
 //        File patch = new File(mActivityRule.getActivity().getFilesDir().getAbsolutePath() + String.format("/%s/%s.bspatch", BUNDLES, "patch"));
 //        byte[] patchBytes = apiClient.writeBundleToFile(response);
@@ -227,7 +227,7 @@ public class PlatformTests {
     @Test
     public void testMeRequest() {
         APIClient apiClient = APIClient.getInstance(mActivityRule.getActivity());
-        Response response = apiClient.buyBitcoinMe();
+        Response response = apiClient.buyWeyCoinMe();
         Assert.assertTrue(response.isSuccessful());
         response.close();
     }
@@ -272,7 +272,7 @@ public class PlatformTests {
     @Test
     public void testBitIdSignature() {
 //        BRKey key = new BRKey("c4c9b99b714074736b65d9faab39145949894233a09d8100b91104750a82d31f");
-//        String message = "https://breadwallet.com/bitid?nonce=123456789";
+//        String message = "https://weywallet.com/bitid?nonce=123456789";
 //        String expectedSig = "ICWek6XEVxu/1/x+TtWk178t6uFcToH019RWNnS+JEeJOr2XGkZKQwsSqEvJ7l3sfhUoX1jm4uWP7nmlyG5Y10E=";
 //        String sig = BRBitId.signMessage(message, key);
 //        Log.e(TAG, "sig: " + sig);

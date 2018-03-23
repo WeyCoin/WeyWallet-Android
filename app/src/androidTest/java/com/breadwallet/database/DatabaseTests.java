@@ -1,4 +1,4 @@
-package com.breadwallet.database;
+package com.weywallet.database;
 
 import android.app.Activity;
 import android.support.test.filters.LargeTest;
@@ -6,25 +6,25 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.util.Log;
 
-import com.breadwallet.core.BRCoreMasterPubKey;
-import com.breadwallet.presenter.activities.intro.IntroActivity;
-import com.breadwallet.presenter.activities.settings.TestActivity;
-import com.breadwallet.presenter.entities.BRMerkleBlockEntity;
-import com.breadwallet.presenter.entities.BRPeerEntity;
-import com.breadwallet.presenter.entities.BRTransactionEntity;
-import com.breadwallet.presenter.entities.BlockEntity;
-import com.breadwallet.presenter.entities.CurrencyEntity;
-import com.breadwallet.presenter.entities.PeerEntity;
-import com.breadwallet.tools.security.BRKeyStore;
-import com.breadwallet.tools.sqlite.BtcBchTransactionDataStore;
-import com.breadwallet.tools.sqlite.CurrencyDataSource;
-import com.breadwallet.tools.sqlite.MerkleBlockDataSource;
-import com.breadwallet.tools.sqlite.PeerDataSource;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
-import com.breadwallet.wallet.wallets.bitcoin.WalletBitcoinManager;
-import com.breadwallet.wallet.wallets.bitcoincash.WalletBchManager;
+import com.weywallet.core.BRCoreMasterPubKey;
+import com.weywallet.presenter.activities.intro.IntroActivity;
+import com.weywallet.presenter.activities.settings.TestActivity;
+import com.weywallet.presenter.entities.BRMerkleBlockEntity;
+import com.weywallet.presenter.entities.BRPeerEntity;
+import com.weywallet.presenter.entities.BRTransactionEntity;
+import com.weywallet.presenter.entities.BlockEntity;
+import com.weywallet.presenter.entities.CurrencyEntity;
+import com.weywallet.presenter.entities.PeerEntity;
+import com.weywallet.tools.security.BRKeyStore;
+import com.weywallet.tools.sqlite.BtcBchTransactionDataStore;
+import com.weywallet.tools.sqlite.CurrencyDataSource;
+import com.weywallet.tools.sqlite.MerkleBlockDataSource;
+import com.weywallet.tools.sqlite.PeerDataSource;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.wallet.wallets.weycoin.WalletWeyCoinManager;
+import com.weywallet.wallet.wallets.weycoincash.WalletBchManager;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -39,10 +39,10 @@ import java.util.concurrent.CountDownLatch;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 9/30/16.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 9/30/16.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

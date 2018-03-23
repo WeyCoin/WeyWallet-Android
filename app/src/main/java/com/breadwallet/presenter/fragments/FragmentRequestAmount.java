@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.fragments;
+package com.weywallet.presenter.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -19,22 +19,22 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.customviews.BRButton;
-import com.breadwallet.presenter.customviews.BRKeyboard;
-import com.breadwallet.presenter.customviews.BRLinearLayoutWithCaret;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.SlideDetector;
-import com.breadwallet.tools.manager.BRClipboardManager;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.qrcode.QRUtils;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.CurrencyUtils;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
-import com.breadwallet.wallet.wallets.util.CryptoUriParser;
+import com.weywallet.R;
+import com.weywallet.presenter.customviews.BRButton;
+import com.weywallet.presenter.customviews.BRKeyboard;
+import com.weywallet.presenter.customviews.BRLinearLayoutWithCaret;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.SlideDetector;
+import com.weywallet.tools.manager.BRClipboardManager;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.qrcode.QRUtils;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.CurrencyUtils;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.wallet.wallets.util.CryptoUriParser;
 
 import java.math.BigDecimal;
 
@@ -42,10 +42,10 @@ import static com.platform.HTTPServer.URL_SUPPORT;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 6/29/15.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 6/29/15.
+ * Copyright (c) 2016 weywallet LLC
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -214,8 +214,8 @@ public class FragmentRequestAmount extends Fragment {
                 showKeyboard(false);
                 BaseWalletManager wm = WalletsMaster.getInstance(getActivity()).getCurrentWallet(getActivity());
                 long amount = getAmount();
-                Uri bitcoinUri = CryptoUriParser.createCryptoUrl(getActivity(), wm, wm.decorateAddress(getActivity(), mReceiveAddress), amount, null, null, null);
-                QRUtils.share("mailto:", getActivity(), bitcoinUri.toString());
+                Uri weycoinUri = CryptoUriParser.createCryptoUrl(getActivity(), wm, wm.decorateAddress(getActivity(), mReceiveAddress), amount, null, null, null);
+                QRUtils.share("mailto:", getActivity(), weycoinUri.toString());
 
             }
         });
@@ -228,8 +228,8 @@ public class FragmentRequestAmount extends Fragment {
                 long amount = getAmount();
                 BaseWalletManager wm = WalletsMaster.getInstance(getActivity()).getCurrentWallet(getActivity());
 
-                Uri bitcoinUri = CryptoUriParser.createCryptoUrl(getActivity(), wm, wm.decorateAddress(getActivity(), mReceiveAddress), amount, null, null, null);
-                QRUtils.share("sms:", getActivity(), bitcoinUri.toString());
+                Uri weycoinUri = CryptoUriParser.createCryptoUrl(getActivity(), wm, wm.decorateAddress(getActivity(), mReceiveAddress), amount, null, null, null);
+                QRUtils.share("sms:", getActivity(), weycoinUri.toString());
             }
         });
         shareButton.setOnClickListener(new View.OnClickListener() {

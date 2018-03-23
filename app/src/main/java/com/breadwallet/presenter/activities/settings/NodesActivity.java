@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities.settings;
+package com.weywallet.presenter.activities.settings;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -17,18 +17,18 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.breadwallet.R;
-import com.breadwallet.core.BRCorePeer;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.TrustedNode;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
-import com.breadwallet.wallet.wallets.bitcoin.WalletBitcoinManager;
-import com.breadwallet.wallet.wallets.bitcoincash.WalletBchManager;
+import com.weywallet.R;
+import com.weywallet.core.BRCorePeer;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.TrustedNode;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.wallet.wallets.weycoin.WalletWeyCoinManager;
+import com.weywallet.wallet.wallets.weycoincash.WalletBchManager;
 
 public class NodesActivity extends BRActivity {
     private static final String TAG = NodesActivity.class.getName();
@@ -85,7 +85,7 @@ public class NodesActivity extends BRActivity {
             public void onClick(View v) {
                 if (!BRAnimator.isClickAllowed()) return;
                 final Activity app = NodesActivity.this;
-                final WalletBitcoinManager wm = WalletBitcoinManager.getInstance(NodesActivity.this);
+                final WalletWeyCoinManager wm = WalletWeyCoinManager.getInstance(NodesActivity.this);
 
                 if (BRSharedPrefs.getTrustNode(app, wm.getIso(app)).isEmpty()) {
                     createDialog();
@@ -119,7 +119,7 @@ public class NodesActivity extends BRActivity {
     }
 
     private void updateButtonText() {
-        WalletBitcoinManager wm = WalletBitcoinManager.getInstance(this);
+        WalletWeyCoinManager wm = WalletWeyCoinManager.getInstance(this);
         if (BRSharedPrefs.getTrustNode(this, wm.getIso(this)).isEmpty()) {
             switchButton.setText(getString(R.string.NodeSelector_manualButton));
         } else {
@@ -177,7 +177,7 @@ public class NodesActivity extends BRActivity {
             @Override
             public void onClick(View v) {
                 String str = input.getText().toString();
-                final WalletBitcoinManager wm = WalletBitcoinManager.getInstance(app);
+                final WalletWeyCoinManager wm = WalletWeyCoinManager.getInstance(app);
                 if (TrustedNode.isValid(str)) {
                     mDialog.setMessage("");
                     BRSharedPrefs.putTrustNode(app, wm.getIso(app), str);

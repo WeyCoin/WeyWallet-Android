@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities.util;
+package com.weywallet.presenter.activities.util;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -8,10 +8,10 @@ import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.DisabledActivity;
-import com.breadwallet.presenter.activities.InputWordsActivity;
-import com.breadwallet.presenter.activities.SetPinActivity;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.DisabledActivity;
+import com.weywallet.presenter.activities.InputWordsActivity;
+import com.weywallet.presenter.activities.SetPinActivity;
 
 import java.util.List;
 
@@ -19,10 +19,10 @@ import static android.content.Context.ACTIVITY_SERVICE;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 4/27/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 4/27/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

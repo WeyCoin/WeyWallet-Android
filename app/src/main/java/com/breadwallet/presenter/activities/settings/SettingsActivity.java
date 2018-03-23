@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities.settings;
+package com.weywallet.presenter.activities.settings;
 
 import android.app.Activity;
 import android.content.Context;
@@ -16,20 +16,20 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.CurrencySettingsActivity;
-import com.breadwallet.presenter.activities.UpdatePinActivity;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.entities.BRSettingsItem;
-import com.breadwallet.presenter.interfaces.BRAuthCompletion;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.security.AuthManager;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.CurrencySettingsActivity;
+import com.weywallet.presenter.activities.UpdatePinActivity;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.entities.BRSettingsItem;
+import com.weywallet.presenter.interfaces.BRAuthCompletion;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.security.AuthManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.breadwallet.R.layout.settings_list_item;
-import static com.breadwallet.R.layout.settings_list_section;
+import static com.weywallet.R.layout.settings_list_item;
+import static com.weywallet.R.layout.settings_list_section;
 
 public class SettingsActivity extends BRActivity {
     private static final String TAG = SettingsActivity.class.getName();
@@ -212,7 +212,7 @@ public class SettingsActivity extends BRActivity {
 
         items.add(new BRSettingsItem(getString(R.string.Settings_currencySettings), "", null, true));
 
-        items.add(new BRSettingsItem(getString(R.string.Settings_bitcoin), "", new View.OnClickListener() {
+        items.add(new BRSettingsItem(getString(R.string.Settings_weycoin), "", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SettingsActivity.this, CurrencySettingsActivity.class);
@@ -222,7 +222,7 @@ public class SettingsActivity extends BRActivity {
             }
         }, false));
 
-        items.add(new BRSettingsItem(getString(R.string.Settings_bitcoinCash), "", new View.OnClickListener() {
+        items.add(new BRSettingsItem(getString(R.string.Settings_weycoinCash), "", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SettingsActivity.this, CurrencySettingsActivity.class);
@@ -248,18 +248,18 @@ public class SettingsActivity extends BRActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent appStoreIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + "com.breadwallet"));
+                    Intent appStoreIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + "com.weywallet"));
                     appStoreIntent.setPackage("com.android.vending");
 
                     startActivity(appStoreIntent);
                 } catch (android.content.ActivityNotFoundException exception) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + "com.breadwallet")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + "com.weywallet")));
                 }
                 overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
             }
         }, false));
 
-        items.add(new BRSettingsItem(getString(R.string.Settings_aboutBread), "", new View.OnClickListener() {
+        items.add(new BRSettingsItem(getString(R.string.Settings_aboutWey), "", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SettingsActivity.this, AboutActivity.class);

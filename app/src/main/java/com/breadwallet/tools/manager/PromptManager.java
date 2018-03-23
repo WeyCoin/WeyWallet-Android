@@ -1,32 +1,32 @@
-package com.breadwallet.tools.manager;
+package com.weywallet.tools.manager;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.UpdatePinActivity;
-import com.breadwallet.presenter.activities.intro.WriteDownActivity;
-import com.breadwallet.presenter.activities.settings.FingerprintActivity;
-import com.breadwallet.presenter.activities.settings.ShareDataActivity;
-import com.breadwallet.tools.security.BRKeyStore;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.UpdatePinActivity;
+import com.weywallet.presenter.activities.intro.WriteDownActivity;
+import com.weywallet.presenter.activities.settings.FingerprintActivity;
+import com.weywallet.presenter.activities.settings.ShareDataActivity;
+import com.weywallet.tools.security.BRKeyStore;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
 
-import static com.breadwallet.tools.manager.PromptManager.PromptItem.FINGER_PRINT;
-import static com.breadwallet.tools.manager.PromptManager.PromptItem.PAPER_KEY;
-import static com.breadwallet.tools.manager.PromptManager.PromptItem.RECOMMEND_RESCAN;
-import static com.breadwallet.tools.manager.PromptManager.PromptItem.SHARE_DATA;
-import static com.breadwallet.tools.manager.PromptManager.PromptItem.UPGRADE_PIN;
+import static com.weywallet.tools.manager.PromptManager.PromptItem.FINGER_PRINT;
+import static com.weywallet.tools.manager.PromptManager.PromptItem.PAPER_KEY;
+import static com.weywallet.tools.manager.PromptManager.PromptItem.RECOMMEND_RESCAN;
+import static com.weywallet.tools.manager.PromptManager.PromptItem.SHARE_DATA;
+import static com.weywallet.tools.manager.PromptManager.PromptItem.UPGRADE_PIN;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 7/18/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 7/18/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

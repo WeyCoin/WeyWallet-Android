@@ -1,4 +1,4 @@
-package com.breadwallet.tools.security;
+package com.weywallet.tools.security;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,26 +7,26 @@ import android.os.NetworkOnMainThreadException;
 import android.security.keystore.UserNotAuthenticatedException;
 import android.util.Log;
 
-import com.breadwallet.R;
-import com.breadwallet.core.BRCoreKey;
-import com.breadwallet.core.BRCoreMasterPubKey;
-import com.breadwallet.core.BRCoreTransaction;
-import com.breadwallet.presenter.activities.SetPinActivity;
-import com.breadwallet.presenter.activities.PaperKeyActivity;
-import com.breadwallet.presenter.activities.PaperKeyProveActivity;
-import com.breadwallet.presenter.activities.intro.WriteDownActivity;
-import com.breadwallet.presenter.activities.util.ActivityUTILS;
-import com.breadwallet.presenter.entities.CryptoRequest;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.manager.BRReportsManager;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.sqlite.CurrencyDataSource;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.CurrencyUtils;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.R;
+import com.weywallet.core.BRCoreKey;
+import com.weywallet.core.BRCoreMasterPubKey;
+import com.weywallet.core.BRCoreTransaction;
+import com.weywallet.presenter.activities.SetPinActivity;
+import com.weywallet.presenter.activities.PaperKeyActivity;
+import com.weywallet.presenter.activities.PaperKeyProveActivity;
+import com.weywallet.presenter.activities.intro.WriteDownActivity;
+import com.weywallet.presenter.activities.util.ActivityUTILS;
+import com.weywallet.presenter.entities.CryptoRequest;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.manager.BRReportsManager;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.sqlite.CurrencyDataSource;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.CurrencyUtils;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
 import com.platform.entities.TxMetaData;
 import com.platform.tools.BRBitId;
 import com.platform.tools.KVStoreManager;
@@ -35,10 +35,10 @@ import java.util.Arrays;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 4/14/16.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 4/14/16.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

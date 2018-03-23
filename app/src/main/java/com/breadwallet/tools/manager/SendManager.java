@@ -1,43 +1,43 @@
-package com.breadwallet.tools.manager;
+package com.weywallet.tools.manager;
 
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
-import com.breadwallet.R;
-import com.breadwallet.core.BRCoreAddress;
-import com.breadwallet.core.BRCoreTransaction;
-import com.breadwallet.presenter.customviews.BRDialogView;
-import com.breadwallet.presenter.entities.CryptoRequest;
-import com.breadwallet.presenter.interfaces.BRAuthCompletion;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.security.AuthManager;
-import com.breadwallet.tools.security.BRKeyStore;
-import com.breadwallet.tools.security.PostAuth;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.CurrencyUtils;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
-import com.breadwallet.wallet.wallets.bitcoin.WalletBitcoinManager;
-import com.breadwallet.wallet.wallets.exceptions.AmountSmallerThanMinException;
-import com.breadwallet.wallet.wallets.exceptions.FeeNeedsAdjust;
-import com.breadwallet.wallet.wallets.exceptions.FeeOutOfDate;
-import com.breadwallet.wallet.wallets.exceptions.InsufficientFundsException;
-import com.breadwallet.wallet.wallets.exceptions.SomethingWentWrong;
-import com.breadwallet.wallet.wallets.exceptions.SpendingNotAllowed;
+import com.weywallet.R;
+import com.weywallet.core.BRCoreAddress;
+import com.weywallet.core.BRCoreTransaction;
+import com.weywallet.presenter.customviews.BRDialogView;
+import com.weywallet.presenter.entities.CryptoRequest;
+import com.weywallet.presenter.interfaces.BRAuthCompletion;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.security.AuthManager;
+import com.weywallet.tools.security.BRKeyStore;
+import com.weywallet.tools.security.PostAuth;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.CurrencyUtils;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.wallet.wallets.weycoin.WalletWeyCoinManager;
+import com.weywallet.wallet.wallets.exceptions.AmountSmallerThanMinException;
+import com.weywallet.wallet.wallets.exceptions.FeeNeedsAdjust;
+import com.weywallet.wallet.wallets.exceptions.FeeOutOfDate;
+import com.weywallet.wallet.wallets.exceptions.InsufficientFundsException;
+import com.weywallet.wallet.wallets.exceptions.SomethingWentWrong;
+import com.weywallet.wallet.wallets.exceptions.SpendingNotAllowed;
 import com.google.firebase.crash.FirebaseCrash;
 
 import java.math.BigDecimal;
 import java.util.Locale;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 2/20/18.
- * Copyright (c) 2018 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 2/20/18.
+ * Copyright (c) 2018 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -329,13 +329,13 @@ public class SendManager {
 
         //amount can't be less than the min
         if (Math.abs(walletManager.getWallet().getTransactionAmount(request.tx)) < minOutput) {
-            final String bitcoinMinMessage = String.format(Locale.getDefault(), ctx.getString(R.string.PaymentProtocol_Errors_smallTransaction),
+            final String weycoinMinMessage = String.format(Locale.getDefault(), ctx.getString(R.string.PaymentProtocol_Errors_smallTransaction),
                     CurrencyUtils.getFormattedAmount(ctx, walletManager.getIso(ctx), new BigDecimal(minOutput)));
 
             ((Activity) ctx).runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    BRDialog.showCustomDialog(ctx, ctx.getString(R.string.Alerts_sendFailure), bitcoinMinMessage, ctx.getString(R.string.AccessibilityLabels_close), null, new BRDialogView.BROnClickListener() {
+                    BRDialog.showCustomDialog(ctx, ctx.getString(R.string.Alerts_sendFailure), weycoinMinMessage, ctx.getString(R.string.AccessibilityLabels_close), null, new BRDialogView.BROnClickListener() {
                         @Override
                         public void onClick(BRDialogView brDialogView) {
                             brDialogView.dismiss();

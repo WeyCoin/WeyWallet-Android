@@ -1,4 +1,4 @@
-package com.breadwallet.tools.qrcode;
+package com.weywallet.tools.qrcode;
 
 import android.graphics.Point;
 import android.graphics.PointF;

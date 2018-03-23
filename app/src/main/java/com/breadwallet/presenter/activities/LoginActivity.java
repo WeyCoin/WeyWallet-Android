@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities;
+package com.weywallet.presenter.activities;
 
 import android.Manifest;
 import android.animation.Animator;
@@ -21,32 +21,32 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.breadwallet.BreadApp;
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.camera.ScanQRActivity;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.customviews.BRDialogView;
-import com.breadwallet.presenter.customviews.BRKeyboard;
-import com.breadwallet.presenter.interfaces.BRAuthCompletion;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.animation.SpringAnimator;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.security.AuthManager;
-import com.breadwallet.tools.security.BRKeyStore;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.WeyApp;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.camera.ScanQRActivity;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.customviews.BRDialogView;
+import com.weywallet.presenter.customviews.BRKeyboard;
+import com.weywallet.presenter.interfaces.BRAuthCompletion;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.animation.SpringAnimator;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.security.AuthManager;
+import com.weywallet.tools.security.BRKeyStore;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
 import com.platform.APIClient;
 
 
 import java.util.List;
 
-import static com.breadwallet.R.color.white;
-import static com.breadwallet.tools.util.BRConstants.PLATFORM_ON;
-import static com.breadwallet.tools.util.BRConstants.SCANNER_REQUEST;
+import static com.weywallet.R.color.white;
+import static com.weywallet.tools.util.BRConstants.PLATFORM_ON;
+import static com.weywallet.tools.util.BRConstants.SCANNER_REQUEST;
 
 public class LoginActivity extends BRActivity {
     private static final String TAG = LoginActivity.class.getName();
@@ -119,7 +119,7 @@ public class LoginActivity extends BRActivity {
         keyboard.setBRButtonBackgroundResId(R.drawable.keyboard_trans_button);
         keyboard.setBRButtonTextColor(R.color.white);
         keyboard.setShowDot(false);
-        keyboard.setBreadground(getDrawable(R.drawable.bread_gradient));
+        keyboard.setWeyground(getDrawable(R.drawable.wey_gradient));
         keyboard.setCustomButtonBackgroundColor(10, getColor(android.R.color.transparent));
         keyboard.setDeleteImage(getDrawable(R.drawable.ic_delete_white));
 
@@ -205,7 +205,7 @@ public class LoginActivity extends BRActivity {
             }
         }, 500);
 
-        BreadApp.addOnBackgroundedListener(new BreadApp.OnAppBackgrounded() {
+        WeyApp.addOnBackgroundedListener(new WeyApp.OnAppBackgrounded() {
             @Override
             public void onBackgrounded() {
                 //disconnect all wallets on backgrounded
