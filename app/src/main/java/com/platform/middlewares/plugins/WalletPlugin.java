@@ -3,15 +3,15 @@ package com.platform.middlewares.plugins;
 import android.app.Activity;
 import android.util.Log;
 
-import com.breadwallet.BreadApp;
-import com.breadwallet.presenter.interfaces.BRAuthCompletion;
-import com.breadwallet.tools.manager.BREventManager;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.security.AuthManager;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
+import com.weywallet.WeyApp;
+import com.weywallet.presenter.interfaces.BRAuthCompletion;
+import com.weywallet.tools.manager.BREventManager;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.security.AuthManager;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
 import com.platform.BRHTTPHelper;
 import com.platform.interfaces.Plugin;
 import com.platform.tools.BRBitId;
@@ -34,10 +34,10 @@ import javax.servlet.http.HttpServletResponse;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 11/2/16.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 11/2/16.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -65,7 +65,7 @@ public class WalletPlugin implements Plugin {
     @Override
     public boolean handle(String target, final Request baseRequest, HttpServletRequest request, final HttpServletResponse response) {
         if (!target.startsWith("/_wallet")) return false;
-        Activity app = (Activity) BreadApp.getBreadContext();
+        Activity app = (Activity) WeyApp.getWeyContext();
 
         if (target.startsWith("/_wallet/info") && request.getMethod().equalsIgnoreCase("get")) {
             Log.i(TAG, "handling: " + target + " " + baseRequest.getMethod());

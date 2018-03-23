@@ -1,31 +1,31 @@
-package com.breadwallet.wallet.wallets.util;
+package com.weywallet.wallet.wallets.util;
 
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 
-import com.breadwallet.BuildConfig;
-import com.breadwallet.R;
-import com.breadwallet.core.BRCoreAddress;
-import com.breadwallet.core.BRCoreKey;
-import com.breadwallet.core.BRCoreTransaction;
-import com.breadwallet.presenter.customviews.BRDialogView;
-import com.breadwallet.presenter.entities.CryptoRequest;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.manager.BRClipboardManager;
-import com.breadwallet.tools.manager.BREventManager;
-import com.breadwallet.tools.manager.BRReportsManager;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.manager.SendManager;
-import com.breadwallet.tools.threads.ImportPrivKeyTask;
-import com.breadwallet.tools.threads.PaymentProtocolTask;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
-import com.breadwallet.wallet.wallets.bitcoin.WalletBitcoinManager;
+import com.weywallet.BuildConfig;
+import com.weywallet.R;
+import com.weywallet.core.BRCoreAddress;
+import com.weywallet.core.BRCoreKey;
+import com.weywallet.core.BRCoreTransaction;
+import com.weywallet.presenter.customviews.BRDialogView;
+import com.weywallet.presenter.entities.CryptoRequest;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.manager.BRClipboardManager;
+import com.weywallet.tools.manager.BREventManager;
+import com.weywallet.tools.manager.BRReportsManager;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.manager.SendManager;
+import com.weywallet.tools.threads.ImportPrivKeyTask;
+import com.weywallet.tools.threads.PaymentProtocolTask;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.wallet.wallets.weycoin.WalletWeyCoinManager;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
@@ -35,10 +35,10 @@ import java.util.Map;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 10/19/15.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 10/19/15.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -71,7 +71,7 @@ public class CryptoUriParser {
 
         if (ImportPrivKeyTask.trySweepWallet(app, url, walletManager)) return true;
 
-        if (tryBreadUrl(app, url)) return true; //see if it's a bread url
+        if (tryWeyUrl(app, url)) return true; //see if it's a wey url
 
         CryptoRequest requestObject = parseRequest(app, url);
 
@@ -120,12 +120,12 @@ public class CryptoUriParser {
 
     public static boolean isCryptoUrl(Context app, String url) {
         if (Utils.isNullOrEmpty(url)) return false;
-        if (BRCoreKey.isValidBitcoinBIP38Key(url) || BRCoreKey.isValidBitcoinPrivateKey(url))
+        if (BRCoreKey.isValidWeyCoinBIP38Key(url) || BRCoreKey.isValidWeyCoinPrivateKey(url))
             return true;
 
         CryptoRequest requestObject = parseRequest(app, url);
         // return true if the request is valid url and has param: r or param: address
-        // return true if it is a valid bitcoinPrivKey
+        // return true if it is a valid weycoinPrivKey
         return (requestObject != null && (requestObject.isPaymentProtocol() || requestObject.hasAddress()));
     }
 
@@ -140,8 +140,8 @@ public class CryptoUriParser {
         String scheme = u.getScheme();
 
         if (scheme == null) {
-            scheme = WalletBitcoinManager.getInstance(app).getScheme(app);
-            obj.iso = WalletBitcoinManager.getInstance(app).getIso(app);
+            scheme = WalletWeyCoinManager.getInstance(app).getScheme(app);
+            obj.iso = WalletWeyCoinManager.getInstance(app).getIso(app);
 
         } else {
             for (BaseWalletManager walletManager : WalletsMaster.getInstance(app).getAllWallets()) {
@@ -156,7 +156,7 @@ public class CryptoUriParser {
 
         String schemeSpecific = u.getSchemeSpecificPart();
         if (schemeSpecific.startsWith("//")) {
-            // Fix invalid bitcoin uri
+            // Fix invalid weycoin uri
             schemeSpecific = schemeSpecific.substring(2);
         }
 
@@ -168,7 +168,7 @@ public class CryptoUriParser {
         if (host != null) {
             String trimmedHost = host.trim();
             if (obj.iso.equalsIgnoreCase("bch"))
-                trimmedHost = scheme + ":" + trimmedHost; //bitcoin cash has the scheme attached to the address
+                trimmedHost = scheme + ":" + trimmedHost; //weycoin cash has the scheme attached to the address
             String addrs = wm.undecorateAddress(app, trimmedHost);
             if (!Utils.isNullOrEmpty(addrs) && new BRCoreAddress(addrs).isValid()) {
                 obj.address = addrs;
@@ -202,16 +202,16 @@ public class CryptoUriParser {
         return obj;
     }
 
-    private static boolean tryBreadUrl(Context app, String url) {
+    private static boolean tryWeyUrl(Context app, String url) {
         if (Utils.isNullOrEmpty(url)) return false;
         String tmp = url.trim().replaceAll("\n", "").replaceAll(" ", "%20");
 
         Uri u = Uri.parse(tmp);
         String scheme = u.getScheme();
-        if (scheme != null && scheme.equalsIgnoreCase("bread")) {
+        if (scheme != null && scheme.equalsIgnoreCase("wey")) {
             String schemeSpecific = u.getSchemeSpecificPart();
             if (schemeSpecific != null && schemeSpecific.startsWith("//")) {
-                // Fix invalid bitcoin uri
+                // Fix invalid weycoin uri
                 schemeSpecific = schemeSpecific.substring(2);
             }
 

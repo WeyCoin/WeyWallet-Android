@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.fragments;
+package com.weywallet.presenter.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -18,35 +18,35 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.breadwallet.BreadApp;
-import com.breadwallet.BuildConfig;
-import com.breadwallet.R;
-import com.breadwallet.presenter.customviews.BRButton;
-import com.breadwallet.presenter.customviews.BRKeyboard;
-import com.breadwallet.presenter.customviews.BRLinearLayoutWithCaret;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.SlideDetector;
-import com.breadwallet.tools.manager.BRClipboardManager;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.qrcode.QRUtils;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
-import com.breadwallet.wallet.abstracts.OnBalanceChangedListener;
-import com.breadwallet.wallet.wallets.util.CryptoUriParser;
+import com.weywallet.WeyApp;
+import com.weywallet.BuildConfig;
+import com.weywallet.R;
+import com.weywallet.presenter.customviews.BRButton;
+import com.weywallet.presenter.customviews.BRKeyboard;
+import com.weywallet.presenter.customviews.BRLinearLayoutWithCaret;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.SlideDetector;
+import com.weywallet.tools.manager.BRClipboardManager;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.qrcode.QRUtils;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.wallet.abstracts.OnBalanceChangedListener;
+import com.weywallet.wallet.wallets.util.CryptoUriParser;
 
-import static com.breadwallet.tools.animation.BRAnimator.animateBackgroundDim;
-import static com.breadwallet.tools.animation.BRAnimator.animateSignalSlide;
+import static com.weywallet.tools.animation.BRAnimator.animateBackgroundDim;
+import static com.weywallet.tools.animation.BRAnimator.animateSignalSlide;
 import static com.platform.HTTPServer.URL_SUPPORT;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 6/29/15.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 6/29/15.
+ * Copyright (c) 2016 weywallet LLC
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -288,7 +288,7 @@ public class FragmentReceive extends Fragment {
     }
 
     private void updateQr() {
-        final Context ctx = getContext() == null ? BreadApp.getBreadContext() : (Activity) getContext();
+        final Context ctx = getContext() == null ? WeyApp.getWeyContext() : (Activity) getContext();
         BRExecutor.getInstance().forLightWeightBackgroundTasks().execute(new Runnable() {
             @Override
             public void run() {

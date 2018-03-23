@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities;
+package com.weywallet.presenter.activities;
 
 import android.os.Handler;
 import android.os.Bundle;
@@ -8,16 +8,16 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.customviews.BRKeyboard;
-import com.breadwallet.presenter.interfaces.BROnSignalCompletion;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.SpringAnimator;
-import com.breadwallet.tools.security.AuthManager;
-import com.breadwallet.tools.security.PostAuth;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.Utils;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.customviews.BRKeyboard;
+import com.weywallet.presenter.interfaces.BROnSignalCompletion;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.SpringAnimator;
+import com.weywallet.tools.security.AuthManager;
+import com.weywallet.tools.security.PostAuth;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.Utils;
 
 public class ReEnterPinActivity extends BRActivity {
     private static final String TAG = ReEnterPinActivity.class.getName();
@@ -169,9 +169,9 @@ public class ReEnterPinActivity extends BRActivity {
             }, 200);
             AuthManager.getInstance().setPinCode(pin.toString(), this);
             if (getIntent().getBooleanExtra("noPin", false)) {
-                BRAnimator.startBreadActivity(this, false);
+                BRAnimator.startWeyActivity(this, false);
             } else {
-                BRAnimator.showBreadSignal(this, getString(R.string.Alerts_pinSet), getString(R.string.UpdatePin_createInstruction), R.drawable.ic_check_mark_white, new BROnSignalCompletion() {
+                BRAnimator.showWeySignal(this, getString(R.string.Alerts_pinSet), getString(R.string.UpdatePin_createInstruction), R.drawable.ic_check_mark_white, new BROnSignalCompletion() {
                     @Override
                     public void onComplete() {
                         PostAuth.getInstance().onCreateWalletAuth(ReEnterPinActivity.this, false);

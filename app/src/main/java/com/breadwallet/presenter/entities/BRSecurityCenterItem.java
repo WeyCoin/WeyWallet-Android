@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.entities;
+package com.weywallet.presenter.entities;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -6,10 +6,10 @@ import android.widget.ImageView;
 import static android.R.attr.checkMark;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 3/13/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 3/13/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

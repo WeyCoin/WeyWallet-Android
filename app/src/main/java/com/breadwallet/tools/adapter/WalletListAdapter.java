@@ -1,4 +1,4 @@
-package com.breadwallet.tools.adapter;
+package com.weywallet.tools.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,16 +17,16 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
-import com.breadwallet.R;
-import com.breadwallet.core.BRCorePeer;
-import com.breadwallet.presenter.customviews.BRText;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.manager.SyncManager;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.CurrencyUtils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
-import com.breadwallet.wallet.wallets.bitcoin.WalletBitcoinManager;
+import com.weywallet.R;
+import com.weywallet.core.BRCorePeer;
+import com.weywallet.presenter.customviews.BRText;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.manager.SyncManager;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.CurrencyUtils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.wallet.wallets.weycoin.WalletWeyCoinManager;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

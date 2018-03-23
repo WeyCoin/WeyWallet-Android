@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities;
+package com.weywallet.presenter.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,12 +8,12 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.customviews.BRKeyboard;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.util.BRConstants;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.customviews.BRKeyboard;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.util.BRConstants;
 
 public class SetPinActivity extends BRActivity {
     private static final String TAG = SetPinActivity.class.getName();

@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities.settings;
+package com.weywallet.presenter.activities.settings;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,26 +15,26 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.customviews.BRText;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.manager.FontManager;
-import com.breadwallet.tools.security.AuthManager;
-import com.breadwallet.tools.security.BRKeyStore;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.CurrencyUtils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
-import com.breadwallet.wallet.wallets.bitcoin.WalletBitcoinManager;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.customviews.BRText;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.manager.FontManager;
+import com.weywallet.tools.security.AuthManager;
+import com.weywallet.tools.security.BRKeyStore;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.CurrencyUtils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.wallet.wallets.weycoin.WalletWeyCoinManager;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 
-import static com.breadwallet.tools.util.BRConstants.ONE_BITCOIN;
+import static com.weywallet.tools.util.BRConstants.ONE_BITCOIN;
 
 
 public class SpendLimitActivity extends BRActivity {
@@ -191,7 +191,7 @@ public class SpendLimitActivity extends BRActivity {
             // get the TextView and then set the text (item name) and tag (item ID) values
             textViewItem = convertView.findViewById(R.id.currency_item_text);
             Integer item = getItem(position);
-            BaseWalletManager walletManager = WalletBitcoinManager.getInstance(app); //use the bitcoin wallet to show the limits
+            BaseWalletManager walletManager = WalletWeyCoinManager.getInstance(app); //use the weycoin wallet to show the limits
 
             String cryptoAmount = CurrencyUtils.getFormattedAmount(app, walletManager.getIso(app), new BigDecimal(item));
 

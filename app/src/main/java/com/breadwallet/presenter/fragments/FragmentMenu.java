@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.fragments;
+package com.weywallet.presenter.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -20,26 +20,26 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.settings.SecurityCenterActivity;
-import com.breadwallet.presenter.activities.settings.SettingsActivity;
-import com.breadwallet.presenter.activities.settings.WebViewActivity;
-import com.breadwallet.presenter.entities.BRMenuItem;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.SlideDetector;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.settings.SecurityCenterActivity;
+import com.weywallet.presenter.activities.settings.SettingsActivity;
+import com.weywallet.presenter.activities.settings.WebViewActivity;
+import com.weywallet.presenter.entities.BRMenuItem;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.SlideDetector;
 import com.platform.APIClient;
 import com.platform.HTTPServer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.breadwallet.R.id.menu_listview;
+import static com.weywallet.R.id.menu_listview;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 6/29/15.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 6/29/15.
+ * Copyright (c) 2016 weywallet LLC
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -91,9 +91,9 @@ public class FragmentMenu extends Fragment {
         close = (ImageButton) rootView.findViewById(R.id.close_button);
 
         itemList = new ArrayList<>();
-        boolean buyBitcoinEnabled = APIClient.getInstance(getActivity()).isFeatureEnabled(APIClient.FeatureFlags.BUY_BITCOIN.toString());
-        if (buyBitcoinEnabled)
-            itemList.add(new BRMenuItem(getString(R.string.MenuButton_buy), R.drawable.buy_bitcoin, new View.OnClickListener() {
+        boolean buyWeyCoinEnabled = APIClient.getInstance(getActivity()).isFeatureEnabled(APIClient.FeatureFlags.BUY_BITCOIN.toString());
+        if (buyWeyCoinEnabled)
+            itemList.add(new BRMenuItem(getString(R.string.MenuButton_buy), R.drawable.buy_weycoin, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), WebViewActivity.class);
@@ -134,7 +134,7 @@ public class FragmentMenu extends Fragment {
             public void onClick(View v) {
                 final Activity from = getActivity();
                 from.getFragmentManager().popBackStack();
-                BRAnimator.startBreadActivity(from, true);
+                BRAnimator.startWeyActivity(from, true);
             }
         }));
 

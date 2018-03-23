@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.breadwallet.presenter.customviews.BRButton
+<com.weywallet.presenter.customviews.BRButton
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/watch_list_layout"
@@ -14,7 +14,7 @@
     android:padding="8dp"
     android:textColor="@color/light_gray"
     app:buttonType="2"
-    app:isBreadButton="true"
+    app:isWeyButton="true"
     >
 
-</com.breadwallet.presenter.customviews.BRButton>
+</com.weywallet.presenter.customviews.BRButton>

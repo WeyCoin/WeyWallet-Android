@@ -1,11 +1,11 @@
-package com.breadwallet.tools.util;
+package com.weywallet.tools.util;
 
 import android.content.Context;
 import android.util.Log;
 
-import com.breadwallet.tools.manager.BRReportsManager;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.tools.manager.BRReportsManager;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -14,10 +14,10 @@ import java.util.Currency;
 import java.util.Locale;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 6/28/16.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 6/28/16.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

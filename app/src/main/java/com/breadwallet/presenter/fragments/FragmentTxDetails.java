@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.fragments;
+package com.weywallet.presenter.fragments;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -14,17 +14,17 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.customviews.BRText;
-import com.breadwallet.presenter.entities.CurrencyEntity;
-import com.breadwallet.presenter.entities.TxUiHolder;
-import com.breadwallet.tools.manager.BRClipboardManager;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.util.BRDateUtil;
-import com.breadwallet.tools.util.CurrencyUtils;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.R;
+import com.weywallet.presenter.customviews.BRText;
+import com.weywallet.presenter.entities.CurrencyEntity;
+import com.weywallet.presenter.entities.TxUiHolder;
+import com.weywallet.tools.manager.BRClipboardManager;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.util.BRDateUtil;
+import com.weywallet.tools.util.CurrencyUtils;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
 import com.platform.entities.TxMetaData;
 import com.platform.tools.KVStoreManager;
 

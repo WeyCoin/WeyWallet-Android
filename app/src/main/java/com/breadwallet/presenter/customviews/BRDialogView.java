@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.customviews;
+package com.weywallet.presenter.customviews;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -20,16 +20,16 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.breadwallet.R;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.manager.BRReportsManager;
-import com.breadwallet.tools.util.Utils;
+import com.weywallet.R;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.manager.BRReportsManager;
+import com.weywallet.tools.util.Utils;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 3/15/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 3/15/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -78,7 +78,7 @@ public class BRDialogView extends DialogFragment {
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.bread_alert_dialog, null);
+        View view = inflater.inflate(R.layout.wey_alert_dialog, null);
         TextView titleText = (TextView) view.findViewById(R.id.dialog_title);
         TextView messageText = (TextView) view.findViewById(R.id.dialog_text);
         BRButton positiveButton = view.findViewById(R.id.pos_button);

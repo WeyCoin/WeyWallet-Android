@@ -1,4 +1,4 @@
-package com.breadwallet.wallet;
+package com.weywallet.wallet;
 
 import android.app.Activity;
 import android.app.KeyguardManager;
@@ -9,23 +9,23 @@ import android.net.NetworkInfo;
 import android.security.keystore.UserNotAuthenticatedException;
 import android.util.Log;
 
-import com.breadwallet.R;
-import com.breadwallet.core.BRCoreKey;
-import com.breadwallet.core.BRCoreMasterPubKey;
-import com.breadwallet.presenter.customviews.BRDialogView;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.manager.BRReportsManager;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.security.BRKeyStore;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.Bip39Reader;
-import com.breadwallet.tools.util.TrustedNode;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
-import com.breadwallet.wallet.wallets.bitcoin.WalletBitcoinManager;
-import com.breadwallet.wallet.wallets.bitcoincash.WalletBchManager;
+import com.weywallet.R;
+import com.weywallet.core.BRCoreKey;
+import com.weywallet.core.BRCoreMasterPubKey;
+import com.weywallet.presenter.customviews.BRDialogView;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.manager.BRReportsManager;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.security.BRKeyStore;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.Bip39Reader;
+import com.weywallet.tools.util.TrustedNode;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.wallet.wallets.weycoin.WalletWeyCoinManager;
+import com.weywallet.wallet.wallets.weycoincash.WalletBchManager;
 import com.platform.entities.WalletInfo;
 import com.platform.tools.KVStoreManager;
 
@@ -36,10 +36,10 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 12/10/15.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 12/10/15.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -87,7 +87,7 @@ public class WalletsMaster {
         if (Utils.isNullOrEmpty(iso))
             throw new RuntimeException("getWalletByIso with iso = null, Cannot happen!");
         if (iso.equalsIgnoreCase("BTC"))
-            return WalletBitcoinManager.getInstance(app);
+            return WalletWeyCoinManager.getInstance(app);
         if (iso.equalsIgnoreCase("BCH")) return WalletBchManager.getInstance(app);
         return null;
     }
@@ -253,8 +253,8 @@ public class WalletsMaster {
     }
 
     public void initWallets(Context app) {
-        if (!mWallets.contains(WalletBitcoinManager.getInstance(app)))
-            mWallets.add(WalletBitcoinManager.getInstance(app));
+        if (!mWallets.contains(WalletWeyCoinManager.getInstance(app)))
+            mWallets.add(WalletWeyCoinManager.getInstance(app));
         if (!mWallets.contains(WalletBchManager.getInstance(app)))
             mWallets.add(WalletBchManager.getInstance(app));
     }
@@ -301,7 +301,7 @@ public class WalletsMaster {
                     }, 0);
         } else {
             if (!m.noWallet(app)) {
-                BRAnimator.startBreadActivity(app, true);
+                BRAnimator.startWeyActivity(app, true);
             }
             //else just sit in the intro screen
 

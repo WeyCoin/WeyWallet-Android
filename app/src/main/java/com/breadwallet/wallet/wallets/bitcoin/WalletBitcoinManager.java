@@ -1,4 +1,4 @@
-package com.breadwallet.wallet.wallets.bitcoin;
+package com.weywallet.wallet.wallets.weycoin;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,55 +9,55 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.breadwallet.BreadApp;
-import com.breadwallet.BuildConfig;
-import com.breadwallet.R;
-import com.breadwallet.core.BRCoreAddress;
-import com.breadwallet.core.BRCoreChainParams;
-import com.breadwallet.core.BRCoreKey;
-import com.breadwallet.core.BRCoreMasterPubKey;
-import com.breadwallet.core.BRCoreMerkleBlock;
-import com.breadwallet.core.BRCorePeer;
-import com.breadwallet.core.BRCorePeerManager;
-import com.breadwallet.core.BRCoreTransaction;
-import com.breadwallet.core.BRCoreWallet;
-import com.breadwallet.core.BRCoreWalletManager;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.customviews.BRToast;
-import com.breadwallet.presenter.entities.BRMerkleBlockEntity;
-import com.breadwallet.presenter.entities.BRPeerEntity;
-import com.breadwallet.presenter.entities.BRTransactionEntity;
-import com.breadwallet.presenter.entities.BlockEntity;
-import com.breadwallet.presenter.entities.CurrencyEntity;
-import com.breadwallet.presenter.entities.PeerEntity;
-import com.breadwallet.presenter.entities.TxUiHolder;
-import com.breadwallet.presenter.interfaces.BROnSignalCompletion;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.manager.BRApiManager;
-import com.breadwallet.tools.manager.BREventManager;
-import com.breadwallet.tools.manager.BRNotificationManager;
-import com.breadwallet.tools.manager.BRReportsManager;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.manager.InternetManager;
-import com.breadwallet.tools.security.BRKeyStore;
-import com.breadwallet.tools.sqlite.BtcBchTransactionDataStore;
-import com.breadwallet.tools.sqlite.CurrencyDataSource;
-import com.breadwallet.tools.sqlite.MerkleBlockDataSource;
-import com.breadwallet.tools.sqlite.PeerDataSource;
-import com.breadwallet.tools.sqlite.TransactionStorageManager;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.CurrencyUtils;
-import com.breadwallet.tools.util.TypesConverter;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
-import com.breadwallet.wallet.abstracts.OnBalanceChangedListener;
-import com.breadwallet.wallet.abstracts.SyncListener;
-import com.breadwallet.wallet.abstracts.OnTxListModified;
-import com.breadwallet.wallet.abstracts.OnTxStatusUpdatedListener;
-import com.breadwallet.wallet.wallets.configs.WalletUiConfiguration;
+import com.weywallet.WeyApp;
+import com.weywallet.BuildConfig;
+import com.weywallet.R;
+import com.weywallet.core.BRCoreAddress;
+import com.weywallet.core.BRCoreChainParams;
+import com.weywallet.core.BRCoreKey;
+import com.weywallet.core.BRCoreMasterPubKey;
+import com.weywallet.core.BRCoreMerkleBlock;
+import com.weywallet.core.BRCorePeer;
+import com.weywallet.core.BRCorePeerManager;
+import com.weywallet.core.BRCoreTransaction;
+import com.weywallet.core.BRCoreWallet;
+import com.weywallet.core.BRCoreWalletManager;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.customviews.BRToast;
+import com.weywallet.presenter.entities.BRMerkleBlockEntity;
+import com.weywallet.presenter.entities.BRPeerEntity;
+import com.weywallet.presenter.entities.BRTransactionEntity;
+import com.weywallet.presenter.entities.BlockEntity;
+import com.weywallet.presenter.entities.CurrencyEntity;
+import com.weywallet.presenter.entities.PeerEntity;
+import com.weywallet.presenter.entities.TxUiHolder;
+import com.weywallet.presenter.interfaces.BROnSignalCompletion;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.manager.BRApiManager;
+import com.weywallet.tools.manager.BREventManager;
+import com.weywallet.tools.manager.BRNotificationManager;
+import com.weywallet.tools.manager.BRReportsManager;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.manager.InternetManager;
+import com.weywallet.tools.security.BRKeyStore;
+import com.weywallet.tools.sqlite.BtcBchTransactionDataStore;
+import com.weywallet.tools.sqlite.CurrencyDataSource;
+import com.weywallet.tools.sqlite.MerkleBlockDataSource;
+import com.weywallet.tools.sqlite.PeerDataSource;
+import com.weywallet.tools.sqlite.TransactionStorageManager;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.CurrencyUtils;
+import com.weywallet.tools.util.TypesConverter;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.wallet.abstracts.OnBalanceChangedListener;
+import com.weywallet.wallet.abstracts.SyncListener;
+import com.weywallet.wallet.abstracts.OnTxListModified;
+import com.weywallet.wallet.abstracts.OnTxStatusUpdatedListener;
+import com.weywallet.wallet.wallets.configs.WalletUiConfiguration;
 import com.google.firebase.crash.FirebaseCrash;
 import com.platform.entities.TxMetaData;
 import com.platform.tools.KVStoreManager;
@@ -71,13 +71,13 @@ import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-import static com.breadwallet.tools.util.BRConstants.ROUNDING_MODE;
+import static com.weywallet.tools.util.BRConstants.ROUNDING_MODE;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 1/22/18.
- * Copyright (c) 2018 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 1/22/18.
+ * Copyright (c) 2018 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -97,19 +97,19 @@ import static com.breadwallet.tools.util.BRConstants.ROUNDING_MODE;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWalletManager {
+public class WalletWeyCoinManager extends BRCoreWalletManager implements BaseWalletManager {
 
-    private static final String TAG = WalletBitcoinManager.class.getName();
+    private static final String TAG = WalletWeyCoinManager.class.getName();
 
     private static String ISO = "BTC";
 
-    private static final String mName = "Bitcoin";
-    public static final String BTC_SCHEME = "bitcoin";
+    private static final String mName = "WeyCoin";
+    public static final String BTC_SCHEME = "weycoin";
 
 
     public static final long MAX_BTC = 21000000;
 
-    private static WalletBitcoinManager instance;
+    private static WalletWeyCoinManager instance;
     private WalletUiConfiguration uiConfig;
 
     private int mSyncRetryCount = 0;
@@ -124,7 +124,7 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
 
     private Executor listenerExecutor = Executors.newSingleThreadExecutor();
 
-    public synchronized static WalletBitcoinManager getInstance(Context app) {
+    public synchronized static WalletWeyCoinManager getInstance(Context app) {
         if (instance == null) {
             byte[] rawPubKey = BRKeyStore.getMasterPublicKey(app);
             if (Utils.isNullOrEmpty(rawPubKey)) {
@@ -137,12 +137,12 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
             //long time = 1519190488;
 //            long time = (System.currentTimeMillis() / 1000) - 3 * 7 * 24 * 60 * 60; // 3 * 7
 
-            instance = new WalletBitcoinManager(app, pubKey, BuildConfig.BITCOIN_TESTNET ? BRCoreChainParams.testnetChainParams : BRCoreChainParams.mainnetChainParams, time);
+            instance = new WalletWeyCoinManager(app, pubKey, BuildConfig.BITCOIN_TESTNET ? BRCoreChainParams.testnetChainParams : BRCoreChainParams.mainnetChainParams, time);
         }
         return instance;
     }
 
-    private WalletBitcoinManager(final Context app, BRCoreMasterPubKey masterPubKey,
+    private WalletWeyCoinManager(final Context app, BRCoreMasterPubKey masterPubKey,
                                  BRCoreChainParams chainParams,
                                  double earliestPeerTime) {
         super(masterPubKey, chainParams, earliestPeerTime);
@@ -203,7 +203,7 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
 
     @Override
     public void updateFee(Context app) {
-        String jsonString = BRApiManager.urlGET(app, "https://" + BreadApp.HOST + "/fee-per-kb?currency=" + getIso(app));
+        String jsonString = BRApiManager.urlGET(app, "https://" + WeyApp.HOST + "/fee-per-kb?currency=" + getIso(app));
         if (jsonString == null || jsonString.isEmpty()) {
             Log.e(TAG, "updateFeePerKb: failed to update fee, response string: " + jsonString);
             return;
@@ -283,10 +283,10 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
                     currencySymbolString = BRConstants.symbolBits;
                     break;
                 case BRConstants.CURRENT_UNIT_MBITS:
-                    currencySymbolString = "m" + BRConstants.symbolBitcoin;
+                    currencySymbolString = "m" + BRConstants.symbolWeyCoin;
                     break;
                 case BRConstants.CURRENT_UNIT_BITCOINS:
-                    currencySymbolString = BRConstants.symbolBitcoin;
+                    currencySymbolString = BRConstants.symbolWeyCoin;
                     break;
             }
         }
@@ -381,7 +381,7 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
 
     @Override
     public BigDecimal getMaxAmount(Context app) {
-        //return max bitcoin
+        //return max weycoin
         return new BigDecimal(MAX_BTC);
     }
 
@@ -527,12 +527,12 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
     @Override
     public void txPublished(final String error) {
         super.txPublished(error);
-        final Context app = BreadApp.getBreadContext();
+        final Context app = WeyApp.getWeyContext();
         BRExecutor.getInstance().forMainThreadTasks().execute(new Runnable() {
             @Override
             public void run() {
                 if (app instanceof Activity)
-                    BRAnimator.showBreadSignal((Activity) app, Utils.isNullOrEmpty(error) ? app.getString(R.string.Alerts_sendSuccess) : app.getString(R.string.Alert_error),
+                    BRAnimator.showWeySignal((Activity) app, Utils.isNullOrEmpty(error) ? app.getString(R.string.Alerts_sendSuccess) : app.getString(R.string.Alert_error),
                             Utils.isNullOrEmpty(error) ? app.getString(R.string.Alerts_sendSuccessSubheader) : "Error: " + error, Utils.isNullOrEmpty(error) ? R.drawable.ic_check_mark_white : R.drawable.ic_error_outline_black_24dp, new BROnSignalCompletion() {
                                 @Override
                                 public void onComplete() {
@@ -549,7 +549,7 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
     @Override
     public void balanceChanged(long balance) {
         super.balanceChanged(balance);
-        Context app = BreadApp.getBreadContext();
+        Context app = WeyApp.getWeyContext();
         setCashedBalance(app, balance);
         for (OnTxListModified list : txModifiedListeners)
             if (list != null) list.txListModified(null);
@@ -568,7 +568,7 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
             public void run() {
                 long blockHeight = getPeerManager().getLastBlockHeight();
 
-                final Context ctx = BreadApp.getBreadContext();
+                final Context ctx = WeyApp.getWeyContext();
                 if (ctx == null) return;
                 BRSharedPrefs.putLastBlockHeight(ctx, getIso(ctx), (int) blockHeight);
             }
@@ -581,7 +581,7 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
     public void saveBlocks(boolean replace, BRCoreMerkleBlock[] blocks) {
         super.saveBlocks(replace, blocks);
 
-        Context app = BreadApp.getBreadContext();
+        Context app = WeyApp.getWeyContext();
         if (app == null) return;
         if (replace) MerkleBlockDataSource.getInstance(app).deleteAllBlocks(app, getIso(app));
         BlockEntity[] entities = new BlockEntity[blocks.length];
@@ -595,7 +595,7 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
     @Override
     public void savePeers(boolean replace, BRCorePeer[] peers) {
         super.savePeers(replace, peers);
-        Context app = BreadApp.getBreadContext();
+        Context app = WeyApp.getWeyContext();
         if (app == null) return;
         if (replace) PeerDataSource.getInstance(app).deleteAllPeers(app, getIso(app));
         PeerEntity[] entities = new PeerEntity[peers.length];
@@ -608,14 +608,14 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
 
     @Override
     public boolean networkIsReachable() {
-        Context app = BreadApp.getBreadContext();
+        Context app = WeyApp.getWeyContext();
         return InternetManager.getInstance().isConnected(app);
     }
 
 
     @Override
     public BRCoreTransaction[] loadTransactions() {
-        Context app = BreadApp.getBreadContext();
+        Context app = WeyApp.getWeyContext();
 
         List<BRTransactionEntity> txs = BtcBchTransactionDataStore.getInstance(app).getAllTransactions(app, getIso(app));
         if (txs == null || txs.size() == 0) return new BRCoreTransaction[0];
@@ -629,7 +629,7 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
 
     @Override
     public BRCoreMerkleBlock[] loadBlocks() {
-        Context app = BreadApp.getBreadContext();
+        Context app = WeyApp.getWeyContext();
         List<BRMerkleBlockEntity> blocks = MerkleBlockDataSource.getInstance(app).getAllMerkleBlocks(app, getIso(app));
         if (blocks == null || blocks.size() == 0) return new BRCoreMerkleBlock[0];
         BRCoreMerkleBlock arr[] = new BRCoreMerkleBlock[blocks.size()];
@@ -642,7 +642,7 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
 
     @Override
     public BRCorePeer[] loadPeers() {
-        Context app = BreadApp.getBreadContext();
+        Context app = WeyApp.getWeyContext();
         List<BRPeerEntity> peers = PeerDataSource.getInstance(app).getAllPeers(app, getIso(app));
         if (peers == null || peers.size() == 0) return new BRCorePeer[0];
         BRCorePeer arr[] = new BRCorePeer[peers.size()];
@@ -657,7 +657,7 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
     public void syncStarted() {
         super.syncStarted();
         Log.d(TAG, "syncStarted: ");
-        final Context app = BreadApp.getBreadContext();
+        final Context app = WeyApp.getWeyContext();
         if (Utils.isEmulatorOrDebug(app))
             BRExecutor.getInstance().forMainThreadTasks().execute(new Runnable() {
                 @Override
@@ -675,7 +675,7 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
     public void syncStopped(final String error) {
         super.syncStopped(error);
         Log.d(TAG, "syncStopped: " + error);
-        final Context app = BreadApp.getBreadContext();
+        final Context app = WeyApp.getWeyContext();
         if (Utils.isNullOrEmpty(error))
             BRSharedPrefs.putAllowSpend(app, getIso(app), true);
         for (SyncListener list : syncListeners)
@@ -720,7 +720,7 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
     @Override
     public void onTxAdded(BRCoreTransaction transaction) {
         super.onTxAdded(transaction);
-        final Context ctx = BreadApp.getBreadContext();
+        final Context ctx = WeyApp.getWeyContext();
         final WalletsMaster master = WalletsMaster.getInstance(ctx);
 
         TxMetaData metaData = KVStoreManager.getInstance().createMetadata(ctx, this, transaction);
@@ -743,7 +743,7 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
                             if (!BRToast.isToastShown()) {
                                 if (Utils.isEmulatorOrDebug(ctx))
                                     BRToast.showCustomToast(ctx, strToShow,
-                                            BreadApp.DISPLAY_HEIGHT_PX / 2, Toast.LENGTH_LONG, R.drawable.toast_layout_black);
+                                            WeyApp.DISPLAY_HEIGHT_PX / 2, Toast.LENGTH_LONG, R.drawable.toast_layout_black);
                                 AudioManager audioManager = (AudioManager) ctx.getSystemService(Context.AUDIO_SERVICE);
                                 if (audioManager.getRingerMode() == AudioManager.RINGER_MODE_NORMAL) {
                                     final MediaPlayer mp = MediaPlayer.create(ctx, R.raw.coinflip);
@@ -774,7 +774,7 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
     public void onTxDeleted(final String hash, int notifyUser, int recommendRescan) {
         super.onTxDeleted(hash, notifyUser, recommendRescan);
         Log.e(TAG, "onTxDeleted: " + String.format("hash: %s, notifyUser: %d, recommendRescan: %d", hash, notifyUser, recommendRescan));
-        final Context ctx = BreadApp.getBreadContext();
+        final Context ctx = WeyApp.getWeyContext();
         if (ctx != null) {
             if (recommendRescan != 0)
                 BRSharedPrefs.putScanRecommended(ctx, getIso(ctx), true);
@@ -797,7 +797,7 @@ public class WalletBitcoinManager extends BRCoreWalletManager implements BaseWal
     public void onTxUpdated(String hash, int blockHeight, int timeStamp) {
         super.onTxUpdated(hash, blockHeight, timeStamp);
         Log.d(TAG, "onTxUpdated: " + String.format("hash: %s, blockHeight: %d, timestamp: %d", hash, blockHeight, timeStamp));
-        Context ctx = BreadApp.getBreadContext();
+        Context ctx = WeyApp.getWeyContext();
         if (ctx != null) {
             TransactionStorageManager.updateTransaction(ctx, getIso(ctx), new BRTransactionEntity(null, blockHeight, timeStamp, hash, getIso(ctx)));
 

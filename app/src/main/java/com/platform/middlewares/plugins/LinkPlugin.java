@@ -6,11 +6,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 
-import com.breadwallet.BreadApp;
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.settings.WebViewActivity;
-import com.breadwallet.tools.manager.BRReportsManager;
-import com.breadwallet.tools.util.Utils;
+import com.weywallet.WeyApp;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.settings.WebViewActivity;
+import com.weywallet.tools.manager.BRReportsManager;
+import com.weywallet.tools.util.Utils;
 import com.platform.BRHTTPHelper;
 import com.platform.interfaces.Plugin;
 
@@ -22,10 +22,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 11/2/16.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 11/2/16.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -55,7 +55,7 @@ public class LinkPlugin implements Plugin {
             Log.i(TAG, "handling: " + target + " " + baseRequest.getMethod());
             String url = request.getParameter("url");
 
-            Context app = BreadApp.getBreadContext();
+            Context app = WeyApp.getWeyContext();
             if (app == null) {
                 Log.e(TAG, "handle: context is null: " + target + " " + baseRequest.getMethod());
                 return BRHTTPHelper.handleError(500, "context is null", baseRequest, response);
@@ -72,7 +72,7 @@ public class LinkPlugin implements Plugin {
             return BRHTTPHelper.handleSuccess(204, null, baseRequest, response, null);
         } else if (target.startsWith("/_open_maps")) {
             Log.i(TAG, "handling: " + target + " " + baseRequest.getMethod());
-            Context app = BreadApp.getBreadContext();
+            Context app = WeyApp.getWeyContext();
             if (app == null) {
                 Log.e(TAG, "handle: context is null: " + target + " " + baseRequest.getMethod());
                 return BRHTTPHelper.handleError(500, "context is null", baseRequest, response);
@@ -88,7 +88,7 @@ public class LinkPlugin implements Plugin {
             app.startActivity(Intent.createChooser(intent, "Select an application"));
             return BRHTTPHelper.handleSuccess(204, null, baseRequest, response, null);
         } else if (target.startsWith("/_browser")) {
-            Context app = BreadApp.getBreadContext();
+            Context app = WeyApp.getWeyContext();
             if (app == null) {
                 Log.e(TAG, "handle: context is null: " + target + " " + baseRequest.getMethod());
                 return BRHTTPHelper.handleError(500, "context is null", baseRequest, response);

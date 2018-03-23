@@ -1,11 +1,11 @@
-package com.breadwallet.tools.manager;
+package com.weywallet.tools.manager;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
 
-import com.breadwallet.tools.util.BRConstants;
+import com.weywallet.tools.util.BRConstants;
 
 import org.json.JSONArray;
 
@@ -17,10 +17,10 @@ import java.util.UUID;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 6/13/16.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 6/13/16.
+ * Copyright (c) 2016 weywallet LLC
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

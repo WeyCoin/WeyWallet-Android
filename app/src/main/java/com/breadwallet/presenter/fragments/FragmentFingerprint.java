@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.fragments;/*
+package com.weywallet.presenter.fragments;/*
  * Copyright (C) 2015 The Android Open Source Project 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
@@ -36,14 +36,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.interfaces.BRAuthCompletion;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.DecelerateOvershootInterpolator;
-import com.breadwallet.tools.security.AuthManager;
-import com.breadwallet.tools.security.FingerprintUiHelper;
-import com.breadwallet.tools.util.Utils;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.interfaces.BRAuthCompletion;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.DecelerateOvershootInterpolator;
+import com.weywallet.tools.security.AuthManager;
+import com.weywallet.tools.security.FingerprintUiHelper;
+import com.weywallet.tools.util.Utils;
 
 
 /**
@@ -200,7 +200,7 @@ public class FragmentFingerprint extends Fragment
 
         if (completion != null) completion.onComplete();
         BRAnimator.killAllFragments(app);
-        BRAnimator.startBreadIfNotStarted(app);
+        BRAnimator.startWeyIfNotStarted(app);
 
         closeMe();
 

@@ -1,5 +1,5 @@
 
-package com.breadwallet.presenter.activities.intro;
+package com.weywallet.presenter.activities.intro;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,21 +10,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.breadwallet.BuildConfig;
-import com.breadwallet.R;
-import com.breadwallet.core.BRCoreMasterPubKey;
-import com.breadwallet.presenter.activities.HomeActivity;
-import com.breadwallet.presenter.activities.SetPinActivity;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.manager.BRReportsManager;
-import com.breadwallet.tools.security.BRKeyStore;
-import com.breadwallet.tools.security.PostAuth;
-import com.breadwallet.tools.security.SmartValidator;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
+import com.weywallet.BuildConfig;
+import com.weywallet.R;
+import com.weywallet.core.BRCoreMasterPubKey;
+import com.weywallet.presenter.activities.HomeActivity;
+import com.weywallet.presenter.activities.SetPinActivity;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.manager.BRReportsManager;
+import com.weywallet.tools.security.BRKeyStore;
+import com.weywallet.tools.security.PostAuth;
+import com.weywallet.tools.security.SmartValidator;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
 import com.platform.APIClient;
 
 import java.io.Serializable;
@@ -32,10 +32,10 @@ import java.util.Arrays;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 8/4/15.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 8/4/15.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

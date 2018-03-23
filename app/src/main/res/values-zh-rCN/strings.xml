@@ -29,7 +29,7 @@
   <!-- Error alert title -->
   <string name="Alert.error">错误</string>
   <!-- Keystore error -->
-  <string name="Alert.keystore.generic.android">您的安卓操作系统密钥库存在问题，请联系support@breadwallet.com</string>
+  <string name="Alert.keystore.generic.android">您的安卓操作系统密钥库存在问题，请联系support@weywallet.com</string>
   <!-- KeyStore error, keys are invalidated -->
   <string name="Alert.keystore.invalidated.android">您的 BRD 加密数据最近因为您的安卓系统屏幕锁定被禁用而失效。</string>
   <!-- Keystore error title -->
@@ -84,7 +84,7 @@
   <string name="BCH.txHashHeader">BCH 交易 ID</string>
   <!-- Approve button label -->
   <string name="BitID.approve">批准</string>
-  <!-- <sitename> is requesting authentication using your bitcoin wallet -->
+  <!-- <sitename> is requesting authentication using your weycoin wallet -->
   <string name="BitID.authenticationRequest">%1$s 正使用您的比特币钱包请求验证</string>
   <!-- Deny button label -->
   <string name="BitID.deny">拒绝</string>
@@ -136,8 +136,8 @@
   <string name="ConfirmPaperPhrase.label">为确保一切均被正确地书写，请在您的纸键输入以下文字。</string>
   <!-- Word label eg. Word #1, Word #2 -->
   <string name="ConfirmPaperPhrase.word">单词#%1$s</string>
-  <!-- Bitcoin denomination picker label -->
-  <string name="DefaultCurrency.bitcoinLabel">比特币显示单位</string>
+  <!-- WeyCoin denomination picker label -->
+  <string name="DefaultCurrency.weycoinLabel">比特币显示单位</string>
   <!-- Exchange rate label -->
   <string name="DefaultCurrency.rateLabel">汇率</string>
   <!-- Email unavailable alert title -->
@@ -232,7 +232,7 @@
   <string name="ManageWallet.textFeildLabel">钱包名称</string>
   <!-- Manage wallet modal title -->
   <string name="ManageWallet.title">管理钱包</string>
-  <!-- Buy bitcoin title -->
+  <!-- Buy weycoin title -->
   <string name="MenuButton.buy">购买比特币</string>
   <!-- Menu button title -->
   <string name="MenuButton.lock">锁住钱包</string>
@@ -366,7 +366,7 @@
   <string name="RecoverWallet.subheader_reset_pin">要重置 PIN 码，请在下面的框中输入纸上密钥中的单词。</string>
   <!-- No amount entered error message. -->
   <string name="RequestAnAmount.noAmount">请先输入金额。</string>
-  <!-- Request a specific amount of bitcoin -->
+  <!-- Request a specific amount of weycoin -->
   <string name="RequestAnAmount.title">申请金额</string>
   <!-- Alert action button label -->
   <string name="ReScan.alertAction">同步</string>
@@ -390,7 +390,7 @@
   <string name="ReScan.subheader1">估计时间</string>
   <!-- Subheader label -->
   <string name="ReScan.subheader2">何时同步？</string>
-  <!-- Scan bitcoin address camera flash toggle -->
+  <!-- Scan weycoin address camera flash toggle -->
   <string name="Scanner.flashButtonLabel">相机闪光灯</string>
   <!-- Complete filter label -->
   <string name="Search.complete">完成</string>
@@ -484,7 +484,7 @@
   <string name="Settings.currency">显示币种</string>
   <!-- Join Early access label -->
   <string name="Settings.earlyAccess">加入早期访问</string>
-  <!-- Are you enjoying bread alert message body -->
+  <!-- Are you enjoying wey alert message body -->
   <string name="Settings.enjoying">您喜欢 BRD 吗？</string>
   <!-- Import wallet label -->
   <string name="Settings.importTitle">导入钱包</string>
@@ -705,9 +705,9 @@
   <!-- Updating webview message -->
   <string name="Webview.updating">正在更新...</string>
   <!-- Welcome screen text. (?) will be replaced with the help icon users should look for. -->
-  <string name="Welcome.body">Breadwallet 更名为 BRD， 并增加了全新的界面和功能。如果您需要帮助，请使用在大多数设备屏幕右上角的(?)</string>
+  <string name="Welcome.body">Weywallet 更名为 BRD， 并增加了全新的界面和功能。如果您需要帮助，请使用在大多数设备屏幕右上角的(?)</string>
   <!-- Top title of welcome screen -->
-  <string name="Welcome.title">欢迎使用bread！</string>
+  <string name="Welcome.title">欢迎使用wey！</string>
   <!-- Wipe wallet alert message -->
   <string name="WipeWallet.alertMessage">您确认要删除此钱包吗？</string>
   <!-- Wipe wallet alert title -->
@@ -719,7 +719,7 @@
   <!-- Enter phrase to wipe wallet instruction. -->
   <string name="WipeWallet.instruction">输入此钱包的恢复短语以擦除并启动或恢复另一钱包。您的当前余额将保留。</string>
   <!-- Start wipe wallet view message -->
-  <string name="WipeWallet.startMessage">开始或恢复另一个钱包能让你在这个设备上管理和使用不同的bread钱包</string>
+  <string name="WipeWallet.startMessage">开始或恢复另一个钱包能让你在这个设备上管理和使用不同的wey钱包</string>
   <!-- Start wipe wallet view warning -->
   <string name="WipeWallet.startWarning">您无法再在这个设备上使用现在的BRD钱包。 现在的一切资金都留在纸键上。</string>
   <!-- Wipe wallet navigation item title. -->

@@ -1,4 +1,4 @@
-package com.breadwallet.tools.threads;
+package com.weywallet.tools.threads;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -13,28 +13,28 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.breadwallet.BreadApp;
-import com.breadwallet.R;
-import com.breadwallet.core.BRCoreAddress;
-import com.breadwallet.core.BRCoreKey;
-import com.breadwallet.core.BRCoreTransaction;
-import com.breadwallet.core.BRCoreTransactionInput;
-import com.breadwallet.core.BRCoreTransactionOutput;
-import com.breadwallet.presenter.activities.WalletActivity;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.customviews.BRDialogView;
-import com.breadwallet.presenter.customviews.BRToast;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.animation.SpringAnimator;
-import com.breadwallet.tools.manager.BRApiManager;
-import com.breadwallet.tools.manager.BRReportsManager;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.CurrencyUtils;
-import com.breadwallet.tools.util.TypesConverter;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.WeyApp;
+import com.weywallet.R;
+import com.weywallet.core.BRCoreAddress;
+import com.weywallet.core.BRCoreKey;
+import com.weywallet.core.BRCoreTransaction;
+import com.weywallet.core.BRCoreTransactionInput;
+import com.weywallet.core.BRCoreTransactionOutput;
+import com.weywallet.presenter.activities.WalletActivity;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.customviews.BRDialogView;
+import com.weywallet.presenter.customviews.BRToast;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.animation.SpringAnimator;
+import com.weywallet.tools.manager.BRApiManager;
+import com.weywallet.tools.manager.BRReportsManager;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.CurrencyUtils;
+import com.weywallet.tools.util.TypesConverter;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,10 +43,10 @@ import org.json.JSONObject;
 import java.math.BigDecimal;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 6/2/16.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 6/2/16.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -113,7 +113,7 @@ public class ImportPrivKeyTask extends AsyncTask<String, String, String> {
         String decoratedAddress = wm.decorateAddress(app, tmpAddress);
 
         //automatically uses testnet if x-testnet is true
-        String fullUrl = String.format("https://%s/q/addr/%s/utxo?currency=%s", BreadApp.HOST, decoratedAddress, iso);
+        String fullUrl = String.format("https://%s/q/addr/%s/utxo?currency=%s", WeyApp.HOST, decoratedAddress, iso);
         mTransaction = createSweepingTx(app, fullUrl);
         if (mTransaction == null) {
             app.runOnUiThread(new Runnable() {
@@ -265,8 +265,8 @@ public class ImportPrivKeyTask extends AsyncTask<String, String, String> {
             Log.e(TAG, "trySweepWallet: ctx is null");
             return false;
         }
-        if (BRCoreKey.isValidBitcoinBIP38Key(privKey)) {
-            Log.d(TAG, "isValidBitcoinBIP38Key true");
+        if (BRCoreKey.isValidWeyCoinBIP38Key(privKey)) {
+            Log.d(TAG, "isValidWeyCoinBIP38Key true");
             ((Activity) ctx).runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -309,7 +309,7 @@ public class ImportPrivKeyTask extends AsyncTask<String, String, String> {
                                 @Override
                                 public void run() {
                                     String decryptedKey = BRCoreKey.decryptBip38Key(privKey, pass);
-                                    //if the decryptedKey is not empty then we have a regular private key and isValidBitcoinBIP38Key will be false
+                                    //if the decryptedKey is not empty then we have a regular private key and isValidWeyCoinBIP38Key will be false
                                     if (decryptedKey.equals("")) {
                                         SpringAnimator.springView(input);
                                         trySweepWallet(ctx, privKey, walletManager);
@@ -332,12 +332,12 @@ public class ImportPrivKeyTask extends AsyncTask<String, String, String> {
                 }
             });
             return true;
-        } else if (BRCoreKey.isValidBitcoinPrivateKey(privKey)) {
-            Log.d(TAG, "isValidBitcoinPrivateKey true");
+        } else if (BRCoreKey.isValidWeyCoinPrivateKey(privKey)) {
+            Log.d(TAG, "isValidWeyCoinPrivateKey true");
             new ImportPrivKeyTask(((Activity) ctx)).execute(privKey, walletManager.getIso(ctx));
             return true;
         } else {
-            Log.e(TAG, "trySweepWallet: !isValidBitcoinPrivateKey && !isValidBitcoinBIP38Key");
+            Log.e(TAG, "trySweepWallet: !isValidWeyCoinPrivateKey && !isValidWeyCoinBIP38Key");
             return false;
         }
     }

@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.fragments;
+package com.weywallet.presenter.fragments;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -12,16 +12,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.breadwallet.R;
+import com.weywallet.R;
 
 import org.w3c.dom.Text;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 7/14/15.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 7/14/15.
+ * Copyright (c) 2016 weywallet LLC
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

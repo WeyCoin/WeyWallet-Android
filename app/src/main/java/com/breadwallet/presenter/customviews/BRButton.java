@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.customviews;
+package com.weywallet.presenter.customviews;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
@@ -21,15 +21,15 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 
-import com.breadwallet.R;
-import com.breadwallet.tools.manager.FontManager;
-import com.breadwallet.tools.util.Utils;
+import com.weywallet.R;
+import com.weywallet.tools.manager.FontManager;
+import com.weywallet.tools.util.Utils;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 5/3/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 5/3/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -67,7 +67,7 @@ public class BRButton extends Button {
     private static final float SHADOW_UNPRESSED = 0.95f;
     private float shadowOffSet = SHADOW_UNPRESSED;
     private static final int ROUND_PIXELS = 16;
-    private boolean isBreadButton; //meaning is has the special animation and shadow
+    private boolean isWeyButton; //meaning is has the special animation and shadow
     private boolean hasShadow; // allows us to add/remove the drop shadow from the button without affecting the animation
 
     public BRButton(Context context) {
@@ -101,16 +101,16 @@ public class BRButton extends Button {
         FontManager.setCustomFont(ctx, this, Utils.isNullOrEmpty(customFont) ? "CircularPro-Medium.otf" : customFont);
         float px16 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 15, getResources().getDisplayMetrics());
         //check attributes you need, for example all paddings
-        int[] attributes = new int[]{android.R.attr.paddingStart, android.R.attr.paddingTop, android.R.attr.paddingEnd, android.R.attr.paddingBottom, R.attr.isBreadButton, R.attr.buttonType};
+        int[] attributes = new int[]{android.R.attr.paddingStart, android.R.attr.paddingTop, android.R.attr.paddingEnd, android.R.attr.paddingBottom, R.attr.isWeyButton, R.attr.buttonType};
         //then obtain typed array
         TypedArray arr = ctx.obtainStyledAttributes(attrs, attributes);
         //You can check if attribute exists (in this example checking paddingRight)
 
-        isBreadButton = a.getBoolean(R.styleable.BRButton_isBreadButton, false);
+        isWeyButton = a.getBoolean(R.styleable.BRButton_isWeyButton, false);
         int paddingLeft = arr.hasValue(0) ? arr.getDimensionPixelOffset(0, -1) : (int) px16;
         int paddingTop = arr.hasValue(1) ? arr.getDimensionPixelOffset(1, -1) : 0;
         int paddingRight = arr.hasValue(2) ? arr.getDimensionPixelOffset(2, -1) : (int) px16;
-        int paddingBottom = arr.hasValue(3) ? arr.getDimensionPixelOffset(3, -1) + (isBreadButton ? (int) px16 : 0) : (isBreadButton ? (int) px16 : 0);
+        int paddingBottom = arr.hasValue(3) ? arr.getDimensionPixelOffset(3, -1) + (isWeyButton ? (int) px16 : 0) : (isWeyButton ? (int) px16 : 0);
         hasShadow = a.getBoolean(R.styleable.BRButton_hasShadow, true);
 
         int type = a.getInteger(R.styleable.BRButton_buttonType, 0);
@@ -119,7 +119,7 @@ public class BRButton extends Button {
         bPaint.setAntiAlias(true);
         bPaintStroke.setAntiAlias(true);
 
-        if (isBreadButton) {
+        if (isWeyButton) {
             setBackground(getContext().getDrawable(R.drawable.shadow_trans));
         }
 
@@ -141,7 +141,7 @@ public class BRButton extends Button {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (isBreadButton) {
+        if (isWeyButton) {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 if (getParent() != null) {
                     getParent().requestDisallowInterceptTouchEvent(false);
@@ -202,7 +202,7 @@ public class BRButton extends Button {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (isBreadButton) {
+        if (isWeyButton) {
 //            if(hasShadow) {
 //                shadowRect.set(5, height / 4, width - 5, (int) (height * shadowOffSet));
 //            }

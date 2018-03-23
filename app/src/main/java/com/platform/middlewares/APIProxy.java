@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
-import com.breadwallet.BreadApp;
-import com.breadwallet.tools.util.Utils;
+import com.weywallet.WeyApp;
+import com.weywallet.tools.util.Utils;
 import com.platform.APIClient;
 import com.platform.BRHTTPHelper;
 import com.platform.interfaces.Middleware;
@@ -28,10 +28,10 @@ import okhttp3.ResponseBody;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 10/19/16.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 10/19/16.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -72,7 +72,7 @@ public class APIProxy implements Middleware {
             "connection"};
 
     public APIProxy() {
-        Context app = BreadApp.getBreadContext();
+        Context app = WeyApp.getWeyContext();
         if (app == null) {
             Log.e(TAG, "APIProxy: app is null!");
         }

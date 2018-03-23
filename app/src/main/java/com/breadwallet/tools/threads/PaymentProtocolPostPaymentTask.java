@@ -1,15 +1,15 @@
-//package com.breadwallet.tools.threads;
+//package com.weywallet.tools.threads;
 //
 //import android.content.Context;
 //import android.os.AsyncTask;
 //import android.util.Log;
 //import android.widget.Toast;
 //
-//import com.breadwallet.BreadApp;
-//import com.breadwallet.R;
-//import com.breadwallet.presenter.activities.util.BRActivity;
-//import com.breadwallet.presenter.customviews.BRToast;
-//import com.breadwallet.tools.util.BytesUtil;
+//import com.weywallet.WeyApp;
+//import com.weywallet.R;
+//import com.weywallet.presenter.activities.util.BRActivity;
+//import com.weywallet.presenter.customviews.BRToast;
+//import com.weywallet.tools.util.BytesUtil;
 //
 //import java.io.DataOutputStream;
 //import java.io.InputStream;
@@ -20,10 +20,10 @@
 //
 //
 ///**
-// * BreadWallet
+// * WeyWallet
 // * <p/>
-// * Created by Mihail Gutan <mihail@breadwallet.com> on 5/9/16.
-// * Copyright (c) 2016 breadwallet LLC
+// * Created by Mihail Gutan <mihail@weywallet.com> on 5/9/16.
+// * Copyright (c) 2016 weywallet LLC
 // * <p/>
 // * Permission is hereby granted, free of charge, to any person obtaining a copy
 // * of this software and associated documentation files (the "Software"), to deal
@@ -70,8 +70,8 @@
 //            sent = false;
 //            URL url = new URL(paymentRequest.paymentURL);
 //            urlConnection = (HttpURLConnection) url.openConnection();
-//            urlConnection.setRequestProperty("Content-Type", "application/bitcoin-payment");
-//            urlConnection.addRequestProperty("Accept", "application/bitcoin-paymentack");
+//            urlConnection.setRequestProperty("Content-Type", "application/weycoin-payment");
+//            urlConnection.addRequestProperty("Accept", "application/weycoin-paymentack");
 //            urlConnection.setConnectTimeout(3000);
 //            urlConnection.setReadTimeout(3000);
 //            urlConnection.setRequestMethod("POST");
@@ -98,7 +98,7 @@
 ////            PostAuth.getInstance().setTmpPaymentRequest(paymentRequest);
 ////            PostAuth.getInstance().onPaymentProtocolRequest(app,false);
 //        } catch (Exception e) {
-//            Context app = BreadApp.getBreadContext();
+//            Context app = WeyApp.getWeyContext();
 //            if (e instanceof java.net.UnknownHostException) {
 //                if (app != null) {
 //                    pendingErrorMessages.put(TITLE, app.getString(R.string.Alert_error));
@@ -119,8 +119,8 @@
 ////                if (app != null) {
 ////                    pendingErrorMessages.put(TITLE, app.getString(R.string.JailbreakWarnings_title));
 ////                    pendingErrorMessages.put(MESSAGE, app.getString(R.string.could_not_transmit_payment));
-//////                    if (!((BreadApp) app.getApplication()).hasInternetAccess())
-//////                        BreadDialog.
+//////                    if (!((WeyApp) app.getApplication()).hasInternetAccess())
+//////                        WeyDialog.
 //////                                showCustomDialog(app,app.getString(R.string.could_not_make_payment), app.getString(R.string.not_connected_network), app.getString(R.string.ok));
 ////
 ////                }
@@ -143,14 +143,14 @@
 //    }
 //
 //    public static void handleMessage() {
-//        Context app = BreadApp.getBreadContext();
+//        Context app = WeyApp.getWeyContext();
 //        if (app != null && message != null) {
 //            if (!message.isEmpty()) {
 //                BRToast.
 //                        showCustomToast(app, message, BRActivity.screenParametersPoint.y / 2, Toast.LENGTH_LONG, R.drawable.toast_layout_black);
 //            } else {
 //                if (!waiting && !sent && pendingErrorMessages.get(MESSAGE) != null) {
-////                    BreadDialog.
+////                    WeyDialog.
 ////                            showCustomDialog(app,pendingErrorMessages.get(TITLE), pendingErrorMessages.get(MESSAGE), app.getString(R.string.ok));
 //                    pendingErrorMessages = null;
 //                }

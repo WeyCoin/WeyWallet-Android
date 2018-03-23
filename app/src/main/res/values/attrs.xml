@@ -14,7 +14,7 @@
     </declare-styleable>
 
     <declare-styleable name="BRButton">
-        <attr name="isBreadButton" format="boolean"/>
+        <attr name="isWeyButton" format="boolean"/>
         <attr name="buttonType" format="integer"/>
         <attr name="customBFont" format="string"/>
         <attr name="hasShadow" format="boolean"/>
@@ -25,6 +25,6 @@
     </declare-styleable>
 
     <declare-styleable name="BRNotificationBar">
-        <attr name="breadText" format="string"/>
+        <attr name="weyText" format="string"/>
     </declare-styleable>
 </resources>

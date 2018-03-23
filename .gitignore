@@ -66,7 +66,7 @@ crash.txt
 .idea/copyright/
 /app/google-services.json
 /.idea/markdown-navigator/
-/app/src/main/java/com/breadwallet/presenter/fragments/FragmentBreadSignal.java
+/app/src/main/java/com/weywallet/presenter/fragments/FragmentWeySignal.java
 /fastlane/
 fastlane/
 /Release_checklist

@@ -12,14 +12,14 @@ import android.support.v4.content.ContextCompat;
 import android.util.Base64;
 import android.util.Log;
 
-import com.breadwallet.BreadApp;
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.camera.CameraActivity;
-import com.breadwallet.presenter.customviews.BRDialogView;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.crypto.CryptoHelper;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
+import com.weywallet.WeyApp;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.camera.CameraActivity;
+import com.weywallet.presenter.customviews.BRDialogView;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.crypto.CryptoHelper;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
 import com.platform.BRHTTPHelper;
 import com.platform.interfaces.Plugin;
 
@@ -43,10 +43,10 @@ import javax.servlet.http.HttpServletResponse;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 11/2/16.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 11/2/16.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -89,7 +89,7 @@ public class CameraPlugin implements Plugin {
 
         if (target.startsWith("/_camera/take_picture")) {
             Log.i(TAG, "handling: " + target + " " + baseRequest.getMethod());
-            final Context app = BreadApp.getBreadContext();
+            final Context app = WeyApp.getWeyContext();
             if (app == null) {
                 Log.e(TAG, "handle: context is null: " + target + " " + baseRequest.getMethod());
 
@@ -149,7 +149,7 @@ public class CameraPlugin implements Plugin {
             return true;
         } else if (target.startsWith("/_camera/picture/")) {
             Log.i(TAG, "handling: " + target + " " + baseRequest.getMethod());
-            final Context app = BreadApp.getBreadContext();
+            final Context app = WeyApp.getWeyContext();
             if (app == null) {
                 Log.e(TAG, "handle: context is null: " + target + " " + baseRequest.getMethod());
                 return BRHTTPHelper.handleError(404, "context is null", baseRequest, response);

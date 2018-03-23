@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities.settings;
+package com.weywallet.presenter.activities.settings;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.InputWordsActivity;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.util.BRConstants;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.InputWordsActivity;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.util.BRConstants;
 
 
 public class UnlinkActivity extends BRActivity {

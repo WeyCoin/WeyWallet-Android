@@ -1,4 +1,4 @@
-package com.breadwallet.tools.manager;
+package com.weywallet.tools.manager;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,24 +10,24 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.WalletActivity;
-import com.breadwallet.presenter.entities.TxUiHolder;
-import com.breadwallet.tools.adapter.TransactionListAdapter;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.listeners.RecyclerItemClickListener;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.WalletActivity;
+import com.weywallet.presenter.entities.TxUiHolder;
+import com.weywallet.tools.adapter.TransactionListAdapter;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.listeners.RecyclerItemClickListener;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
 
 import java.util.List;
 
 
 /**
- * BreadWalletP
+ * WeyWalletP
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 7/19/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 7/19/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

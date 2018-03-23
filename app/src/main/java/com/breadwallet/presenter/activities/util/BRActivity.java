@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities.util;
+package com.weywallet.presenter.activities.util;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,29 +6,29 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.breadwallet.BreadApp;
-import com.breadwallet.presenter.activities.DisabledActivity;
-import com.breadwallet.presenter.activities.intro.IntroActivity;
-import com.breadwallet.presenter.activities.intro.RecoverActivity;
-import com.breadwallet.presenter.activities.intro.WriteDownActivity;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.manager.BRApiManager;
-import com.breadwallet.tools.manager.InternetManager;
-import com.breadwallet.tools.security.AuthManager;
-import com.breadwallet.tools.security.BRKeyStore;
-import com.breadwallet.wallet.wallets.util.CryptoUriParser;
-import com.breadwallet.tools.security.PostAuth;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.wallet.WalletsMaster;
+import com.weywallet.WeyApp;
+import com.weywallet.presenter.activities.DisabledActivity;
+import com.weywallet.presenter.activities.intro.IntroActivity;
+import com.weywallet.presenter.activities.intro.RecoverActivity;
+import com.weywallet.presenter.activities.intro.WriteDownActivity;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.manager.BRApiManager;
+import com.weywallet.tools.manager.InternetManager;
+import com.weywallet.tools.security.AuthManager;
+import com.weywallet.tools.security.BRKeyStore;
+import com.weywallet.wallet.wallets.util.CryptoUriParser;
+import com.weywallet.tools.security.PostAuth;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.wallet.WalletsMaster;
 import com.platform.HTTPServer;
 import com.platform.tools.BRBitId;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 5/23/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 5/23/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -65,15 +65,15 @@ public class BRActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
-        BreadApp.activityCounter.decrementAndGet();
-        BreadApp.onStop(this);
+        WeyApp.activityCounter.decrementAndGet();
+        WeyApp.onStop(this);
     }
 
     @Override
     protected void onResume() {
         init(this);
         super.onResume();
-        BreadApp.backgroundedTime = 0;
+        WeyApp.backgroundedTime = 0;
 
     }
 
@@ -184,7 +184,7 @@ public class BRActivity extends Activity {
                             else if (BRBitId.isBitId(result))
                                 BRBitId.signBitID(BRActivity.this, result, null);
                             else
-                                Log.e(TAG, "onActivityResult: not bitcoin address NOR bitID");
+                                Log.e(TAG, "onActivityResult: not weycoin address NOR bitID");
                         }
                     });
 
@@ -222,8 +222,8 @@ public class BRActivity extends Activity {
             if (AuthManager.getInstance().isWalletDisabled(app))
                 AuthManager.getInstance().setWalletDisabled(app);
 
-        BreadApp.activityCounter.incrementAndGet();
-        BreadApp.setBreadContext(app);
+        WeyApp.activityCounter.incrementAndGet();
+        WeyApp.setWeyContext(app);
 
         if (!HTTPServer.isStarted())
             BRExecutor.getInstance().forLightWeightBackgroundTasks().execute(new Runnable() {
@@ -239,12 +239,12 @@ public class BRActivity extends Activity {
 
     private void lockIfNeeded(Activity app) {
         //lock wallet if 3 minutes passed
-        if (BreadApp.backgroundedTime != 0
-                && ((System.currentTimeMillis() - BreadApp.backgroundedTime) >= 180 * 1000)
+        if (WeyApp.backgroundedTime != 0
+                && ((System.currentTimeMillis() - WeyApp.backgroundedTime) >= 180 * 1000)
                 && !(app instanceof DisabledActivity)) {
             if (!BRKeyStore.getPinCode(app).isEmpty()) {
-                Log.e(TAG, "lockIfNeeded: " + BreadApp.backgroundedTime);
-                BRAnimator.startBreadActivity(app, true);
+                Log.e(TAG, "lockIfNeeded: " + WeyApp.backgroundedTime);
+                BRAnimator.startWeyActivity(app, true);
             }
         }
 

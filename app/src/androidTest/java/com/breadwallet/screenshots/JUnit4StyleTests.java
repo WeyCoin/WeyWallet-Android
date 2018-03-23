@@ -1,12 +1,12 @@
-package com.breadwallet.screenshots;
+package com.weywallet.screenshots;
 
 import android.os.Build;
 import android.support.test.espresso.Espresso;
 import android.support.test.espresso.IdlingPolicies;
 import android.support.test.rule.ActivityTestRule;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.settings.TestActivity;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.settings.TestActivity;
 
 import org.junit.After;
 import org.junit.Before;
@@ -34,10 +34,10 @@ import tools.fastlane.screengrab.locale.LocaleTestRule;
 import tools.fastlane.screengrab.locale.LocaleUtil;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 10/31/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 10/31/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

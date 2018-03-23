@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities;
+package com.weywallet.presenter.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,21 +12,21 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.intro.IntroActivity;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.customviews.BRDialogView;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.animation.SpringAnimator;
-import com.breadwallet.tools.manager.BRReportsManager;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.security.AuthManager;
-import com.breadwallet.tools.security.PostAuth;
-import com.breadwallet.tools.security.SmartValidator;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.WalletsMaster;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.intro.IntroActivity;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.customviews.BRDialogView;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.animation.SpringAnimator;
+import com.weywallet.tools.manager.BRReportsManager;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.security.AuthManager;
+import com.weywallet.tools.security.PostAuth;
+import com.weywallet.tools.security.SmartValidator;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.Utils;
+import com.weywallet.wallet.WalletsMaster;
 
 public class InputWordsActivity extends BRActivity {
     private static final String TAG = InputWordsActivity.class.getName();

@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities;
+package com.weywallet.presenter.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,14 +11,14 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.SpringAnimator;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.security.AuthManager;
-import com.breadwallet.tools.security.BRKeyStore;
-import com.breadwallet.tools.util.BRConstants;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.SpringAnimator;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.security.AuthManager;
+import com.weywallet.tools.security.BRKeyStore;
+import com.weywallet.tools.util.BRConstants;
 
 import java.util.Locale;
 
@@ -79,7 +79,7 @@ public class DisabledActivity extends BRActivity {
         if (AuthManager.getInstance().isWalletDisabled(DisabledActivity.this)) {
             SpringAnimator.failShakeAnimation(DisabledActivity.this, disabled);
         } else {
-            BRAnimator.startBreadActivity(DisabledActivity.this, true);
+            BRAnimator.startWeyActivity(DisabledActivity.this, true);
         }
     }
 
@@ -131,7 +131,7 @@ public class DisabledActivity extends BRActivity {
         } else if (AuthManager.getInstance().isWalletDisabled(DisabledActivity.this)) {
             SpringAnimator.failShakeAnimation(DisabledActivity.this, disabled);
         } else {
-            BRAnimator.startBreadActivity(DisabledActivity.this, true);
+            BRAnimator.startWeyActivity(DisabledActivity.this, true);
         }
         overridePendingTransition(R.anim.fade_up, R.anim.fade_down);
     }

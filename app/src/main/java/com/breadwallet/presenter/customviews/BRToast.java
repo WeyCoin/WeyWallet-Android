@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.customviews;
+package com.weywallet.presenter.customviews;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.breadwallet.BreadApp;
-import com.breadwallet.R;
+import com.weywallet.WeyApp;
+import com.weywallet.R;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 3/20/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 3/20/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -50,10 +50,10 @@ public class BRToast {
 
     public static void showCustomToast(Context app, String message, int yOffSet, int duration, int layoutDrawable) {
         if (app == null) return;
-        if (!(app instanceof Activity)) app = BreadApp.getBreadContext();
+        if (!(app instanceof Activity)) app = WeyApp.getWeyContext();
         if (app == null) return;
         if (toast == null) toast = new Toast(app);
-        if (!BreadApp.isAppInBackground(app)) return;
+        if (!WeyApp.isAppInBackground(app)) return;
 
         if (customToastAvailable || !oldMessage.equals(message)) {
             oldMessage = message;

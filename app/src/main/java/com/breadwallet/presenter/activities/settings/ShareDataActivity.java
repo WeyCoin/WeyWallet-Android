@@ -1,12 +1,12 @@
-package com.breadwallet.presenter.activities.settings;
+package com.weywallet.presenter.activities.settings;
 
 import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.tools.manager.BRSharedPrefs;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.tools.manager.BRSharedPrefs;
 
 public class ShareDataActivity extends BRActivity {
     private static final String TAG = ShareDataActivity.class.getName();

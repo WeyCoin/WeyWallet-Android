@@ -6,16 +6,16 @@ import android.security.keystore.UserNotAuthenticatedException;
 import android.util.Base64;
 import android.util.Log;
 
-import com.breadwallet.core.BRCoreKey;
-import com.breadwallet.core.BRCoreMasterPubKey;
-import com.breadwallet.presenter.interfaces.BRAuthCompletion;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.security.AuthManager;
-import com.breadwallet.tools.security.BRKeyStore;
-import com.breadwallet.tools.security.PostAuth;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.tools.util.Utils;
+import com.weywallet.core.BRCoreKey;
+import com.weywallet.core.BRCoreMasterPubKey;
+import com.weywallet.presenter.interfaces.BRAuthCompletion;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.security.AuthManager;
+import com.weywallet.tools.security.BRKeyStore;
+import com.weywallet.tools.security.PostAuth;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.tools.util.Utils;
 import com.platform.APIClient;
 import com.platform.middlewares.plugins.WalletPlugin;
 
@@ -43,10 +43,10 @@ import okhttp3.Response;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 1/25/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 1/25/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -68,7 +68,7 @@ import okhttp3.Response;
  */
 public class BRBitId {
     public static final String TAG = BRBitId.class.getName();
-    public static final String BITCOIN_SIGNED_MESSAGE_HEADER = "Bitcoin Signed Message:\n";
+    public static final String BITCOIN_SIGNED_MESSAGE_HEADER = "WeyCoin Signed Message:\n";
 
     private static String _bitUri;
     private static String _bitIdUrl;
@@ -349,7 +349,7 @@ public class BRBitId {
     }
 
     public static String signMessage(String message, BRCoreKey key) {
-        byte[] signingData = formatMessageForBitcoinSigning(message);
+        byte[] signingData = formatMessageForWeyCoinSigning(message);
 
         MessageDigest digest = null;
         try {
@@ -365,7 +365,7 @@ public class BRBitId {
         return Base64.encodeToString(signature, Base64.NO_WRAP);
     }
 
-    private static byte[] formatMessageForBitcoinSigning(String message) {
+    private static byte[] formatMessageForWeyCoinSigning(String message) {
         byte[] headerBytes = null;
         byte[] messageBytes = null;
 

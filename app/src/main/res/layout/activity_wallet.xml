@@ -12,7 +12,7 @@
                 android:fitsSystemWindows="true"
                 android:focusableInTouchMode="true"
                 android:orientation="vertical"
-                tools:context="com.breadwallet.presenter.activities.WalletActivity">
+                tools:context="com.weywallet.presenter.activities.WalletActivity">
 
     <LinearLayout
         android:id="@+id/toolbar_layout"
@@ -28,11 +28,11 @@
             android:id="@+id/tool_bar_flipper"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            tools:context="com.breadwallet.presenter.activities.CurrencyActivity">
+            tools:context="com.weywallet.presenter.activities.CurrencyActivity">
 
 
             <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
-                                               android:id="@+id/bread_bar"
+                                               android:id="@+id/wey_bar"
                                                android:layout_width="match_parent"
                                                android:layout_height="160dp"
                                                android:background="@color/currency_header_background"
@@ -44,7 +44,7 @@
                                                app:contentInsetStart="0dp">
 
                 <android.support.constraint.ConstraintLayout
-                    android:id="@+id/bread_toolbar"
+                    android:id="@+id/wey_toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:animateLayoutChanges="true"
@@ -52,12 +52,12 @@
                     android:clipToPadding="false">
 
 
-                    <com.breadwallet.presenter.customviews.BRText
+                    <com.weywallet.presenter.customviews.BRText
                         android:id="@+id/currency_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="@string/CurrencyBitcoin"
+                        android:text="@string/CurrencyWeyCoin"
                         android:textColor="@color/white"
                         android:textSize="@dimen/header"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -75,7 +75,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
 
-                    <com.breadwallet.presenter.customviews.BRText
+                    <com.weywallet.presenter.customviews.BRText
                         android:id="@+id/currency_usd_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
                         app:layout_constraintTop_toBottomOf="@id/currency_label"/>
 
 
-                    <com.breadwallet.presenter.customviews.BRText
+                    <com.weywallet.presenter.customviews.BRText
                         android:id="@+id/balance_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintRight_toRightOf="parent"/>
 
-                    <com.breadwallet.presenter.customviews.BRText
+                    <com.weywallet.presenter.customviews.BRText
                         android:id="@+id/syncing_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
                         app:layout_constraintEnd_toEndOf="parent"/>
 
 
-                    <com.breadwallet.presenter.customviews.BRText
+                    <com.weywallet.presenter.customviews.BRText
                         android:id="@+id/balance_primary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -163,7 +163,7 @@
                         app:layout_constraintRight_toLeftOf="@id/balance_primary"
                         app:layout_constraintVertical_bias="0.492"/>
 
-                    <com.breadwallet.presenter.customviews.BRText
+                    <com.weywallet.presenter.customviews.BRText
                         android:id="@+id/balance_secondary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -197,28 +197,28 @@
 
             </android.support.v7.widget.Toolbar>
 
-            <com.breadwallet.presenter.customviews.BRSearchBar xmlns:app="http://schemas.android.com/apk/res-auto"
+            <com.weywallet.presenter.customviews.BRSearchBar xmlns:app="http://schemas.android.com/apk/res-auto"
                                                                android:id="@+id/search_bar"
                                                                android:layout_width="match_parent"
                                                                android:layout_height="160dp"
-                                                               android:background="@drawable/bread_gradient"
+                                                               android:background="@drawable/wey_gradient"
                                                                android:contentInsetLeft="0dp"
                                                                android:contentInsetStart="0dp"
                                                                app:contentInsetLeft="0dp"
                                                                app:contentInsetStart="0dp"/>
 
-            <com.breadwallet.presenter.customviews.BRNotificationBar xmlns:app="http://schemas.android.com/apk/res-auto"
+            <com.weywallet.presenter.customviews.BRNotificationBar xmlns:app="http://schemas.android.com/apk/res-auto"
                                                                      android:id="@+id/notification_bar"
                                                                      android:layout_width="match_parent"
                                                                      android:layout_height="160dp"
                                                                      android:layout_alignParentTop="true"
                                                                      android:layout_marginLeft="0dp"
                                                                      android:layout_marginRight="0dp"
-                                                                     android:background="@drawable/bread_gradient"
+                                                                     android:background="@drawable/wey_gradient"
                                                                      android:contentInsetLeft="0dp"
                                                                      android:contentInsetStart="0dp"
                                                                      android:visibility="visible"
-                                                                     app:breadText="No internet connection found.\nCheck your connection and try again."
+                                                                     app:weyText="No internet connection found.\nCheck your connection and try again."
                                                                      app:contentInsetLeft="0dp"
                                                                      app:contentInsetStart="0dp"/>
 
@@ -263,7 +263,7 @@
         android:weightSum="3">
 
 
-        <com.breadwallet.presenter.customviews.BRButton
+        <com.weywallet.presenter.customviews.BRButton
             android:id="@+id/send_button"
             android:layout_width="0dp"
             android:layout_height="65dp"
@@ -280,10 +280,10 @@
             app:buttonType="4"
             app:customTFont="CircularPro-Bold.otf"
             app:hasShadow="false"
-            app:isBreadButton="true"/>
+            app:isWeyButton="true"/>
 
 
-        <com.breadwallet.presenter.customviews.BRButton
+        <com.weywallet.presenter.customviews.BRButton
             android:id="@+id/receive_button"
             android:layout_width="0dp"
             android:layout_height="65dp"
@@ -299,9 +299,9 @@
             app:buttonType="4"
             app:customTFont="CircularPro-Bold.otf"
             app:hasShadow="false"
-            app:isBreadButton="true"/>
+            app:isWeyButton="true"/>
 
-        <com.breadwallet.presenter.customviews.BRButton
+        <com.weywallet.presenter.customviews.BRButton
             android:id="@+id/buy_button"
             android:layout_width="0dp"
             android:layout_height="65dp"
@@ -318,7 +318,7 @@
             app:buttonType="4"
             app:customTFont="CircularPro-Bold.otf"
             app:hasShadow="false"
-            app:isBreadButton="true"/>
+            app:isWeyButton="true"/>
 
     </LinearLayout>
 

@@ -1,4 +1,4 @@
-<com.breadwallet.presenter.customviews.BRRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.weywallet.presenter.customviews.BRRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                         xmlns:app="http://schemas.android.com/apk/res-auto"
                                                         android:id="@+id/layout"
                                                         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         android:layout_centerVertical="true"
         android:layout_gravity="center"
         android:layout_margin="16dp"
-        android:background="@drawable/bread_dialog_rounded"
+        android:background="@drawable/wey_dialog_rounded"
         android:clickable="true"
         android:orientation="vertical"
         android:padding="0dp">
@@ -35,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent">
         </LinearLayout>
 
-        <com.breadwallet.presenter.customviews.BRText
+        <com.weywallet.presenter.customviews.BRText
             android:id="@+id/BRText3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout4"/>
 
-        <com.breadwallet.presenter.customviews.BRText
+        <com.weywallet.presenter.customviews.BRText
             android:id="@+id/BRText4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/BRText3"/>
 
-        <com.breadwallet.presenter.customviews.BRButton
+        <com.weywallet.presenter.customviews.BRButton
             android:id="@+id/ok"
             android:layout_width="0dp"
             android:layout_height="80dp"
@@ -81,7 +81,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="40dp"
             android:background="@drawable/b_blue"
-            app:isBreadButton="true"
+            app:isWeyButton="true"
             app:buttonType="1"
             android:text="@string/Button.ok"
             android:textColor="@color/white"
@@ -95,4 +95,4 @@
 
     </android.support.constraint.ConstraintLayout>
 
-</com.breadwallet.presenter.customviews.BRRelativeLayout>
+</com.weywallet.presenter.customviews.BRRelativeLayout>

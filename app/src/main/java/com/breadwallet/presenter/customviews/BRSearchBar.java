@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.customviews;
+package com.weywallet.presenter.customviews;
 
 import android.content.Context;
 import android.os.Handler;
@@ -11,16 +11,16 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.WalletActivity;
-import com.breadwallet.tools.manager.TxManager;
-import com.breadwallet.tools.threads.executor.BRExecutor;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.WalletActivity;
+import com.weywallet.tools.manager.TxManager;
+import com.weywallet.tools.threads.executor.BRExecutor;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 5/8/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 5/8/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -51,7 +51,7 @@ public class BRSearchBar extends android.support.v7.widget.Toolbar {
     private BRButton pendingFilter;
     private BRButton completedFilter;
     private BRButton cancelButton;
-    private WalletActivity breadActivity;
+    private WalletActivity weyActivity;
 
     public boolean[] filterSwitches = new boolean[4];
 
@@ -73,7 +73,7 @@ public class BRSearchBar extends android.support.v7.widget.Toolbar {
 
     private void init() {
         inflate(getContext(), R.layout.search_bar, this);
-        breadActivity = (WalletActivity) getContext();
+        weyActivity = (WalletActivity) getContext();
         searchEdit = (EditText) findViewById(R.id.search_edit);
         sentFilter = (BRButton) findViewById(R.id.sent_filter);
         receivedFilter = (BRButton) findViewById(R.id.received_filter);
@@ -99,7 +99,7 @@ public class BRSearchBar extends android.support.v7.widget.Toolbar {
         BRExecutor.getInstance().forBackgroundTasks().execute(new Runnable() {
             @Override
             public void run() {
-                TxManager.getInstance().updateTxList(breadActivity);
+                TxManager.getInstance().updateTxList(weyActivity);
             }
         });
 
@@ -119,8 +119,8 @@ public class BRSearchBar extends android.support.v7.widget.Toolbar {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
-                    if (breadActivity.barFlipper != null) {
-                        breadActivity.barFlipper.setDisplayedChild(0);
+                    if (weyActivity.barFlipper != null) {
+                        weyActivity.barFlipper.setDisplayedChild(0);
                         clearSwitches();
                     }
                 }
@@ -131,7 +131,7 @@ public class BRSearchBar extends android.support.v7.widget.Toolbar {
             @Override
             public void onClick(View v) {
                 searchEdit.setText("");
-                breadActivity.resetFlipper();
+                weyActivity.resetFlipper();
                 clearSwitches();
                 onShow(false);
             }

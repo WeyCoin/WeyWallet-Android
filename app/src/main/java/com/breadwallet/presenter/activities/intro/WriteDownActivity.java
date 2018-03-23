@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities.intro;
+package com.weywallet.presenter.activities.intro;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -6,14 +6,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.util.ActivityUTILS;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.interfaces.BRAuthCompletion;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.security.AuthManager;
-import com.breadwallet.tools.security.PostAuth;
-import com.breadwallet.tools.util.BRConstants;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.util.ActivityUTILS;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.interfaces.BRAuthCompletion;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.security.AuthManager;
+import com.weywallet.tools.security.PostAuth;
+import com.weywallet.tools.util.BRConstants;
 
 public class WriteDownActivity extends BRActivity {
     private static final String TAG = WriteDownActivity.class.getName();
@@ -91,7 +91,7 @@ public class WriteDownActivity extends BRActivity {
 
     private void close() {
         Log.e(TAG, "close: ");
-        BRAnimator.startBreadActivity(this, false);
+        BRAnimator.startWeyActivity(this, false);
         overridePendingTransition(R.anim.fade_up, R.anim.exit_to_bottom);
         if (!isDestroyed()) finish();
         //additional code

@@ -1,4 +1,4 @@
-package com.breadwallet.tools.manager;
+package com.weywallet.tools.manager;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -7,17 +7,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
-import com.breadwallet.wallet.WalletsMaster;
+import com.weywallet.wallet.WalletsMaster;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan <mihail@breadwallet.com> on 7/14/15.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan <mihail@weywallet.com> on 7/14/15.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

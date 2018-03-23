@@ -1,4 +1,4 @@
-package com.breadwallet.tools.util;
+package com.weywallet.tools.util;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

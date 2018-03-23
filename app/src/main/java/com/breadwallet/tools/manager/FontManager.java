@@ -1,4 +1,4 @@
-package com.breadwallet.tools.manager;
+package com.weywallet.tools.manager;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -7,10 +7,10 @@ import android.widget.TextView;
 import java.util.Hashtable;
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 5/3/17.
- * Copyright (c) 2017 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 5/3/17.
+ * Copyright (c) 2017 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

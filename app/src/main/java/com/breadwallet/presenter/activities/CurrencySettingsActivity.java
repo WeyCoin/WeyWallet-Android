@@ -1,4 +1,4 @@
-package com.breadwallet.presenter.activities;
+package com.weywallet.presenter.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,21 +9,21 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
-import com.breadwallet.R;
-import com.breadwallet.presenter.activities.settings.ImportActivity;
-import com.breadwallet.presenter.activities.settings.SettingsActivity;
-import com.breadwallet.presenter.activities.settings.SyncBlockchainActivity;
-import com.breadwallet.presenter.activities.settings.UnlinkActivity;
-import com.breadwallet.presenter.activities.util.BRActivity;
-import com.breadwallet.presenter.customviews.BRDialogView;
-import com.breadwallet.presenter.customviews.BRText;
-import com.breadwallet.tools.animation.BRAnimator;
-import com.breadwallet.tools.animation.BRDialog;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.BRConstants;
-import com.breadwallet.wallet.WalletsMaster;
-import com.breadwallet.wallet.abstracts.BaseWalletManager;
+import com.weywallet.R;
+import com.weywallet.presenter.activities.settings.ImportActivity;
+import com.weywallet.presenter.activities.settings.SettingsActivity;
+import com.weywallet.presenter.activities.settings.SyncBlockchainActivity;
+import com.weywallet.presenter.activities.settings.UnlinkActivity;
+import com.weywallet.presenter.activities.util.BRActivity;
+import com.weywallet.presenter.customviews.BRDialogView;
+import com.weywallet.presenter.customviews.BRText;
+import com.weywallet.tools.animation.BRAnimator;
+import com.weywallet.tools.animation.BRDialog;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.BRConstants;
+import com.weywallet.wallet.WalletsMaster;
+import com.weywallet.wallet.abstracts.BaseWalletManager;
 
 /**
  * Created by byfieldj on 2/5/18.
@@ -91,7 +91,7 @@ public class CurrencySettingsActivity extends BRActivity {
                                         BRSharedPrefs.putStartHeight(CurrencySettingsActivity.this, BRSharedPrefs.getCurrentWalletIso(CurrencySettingsActivity.this), 0);
                                         BRSharedPrefs.putAllowSpend(CurrencySettingsActivity.this, BRSharedPrefs.getCurrentWalletIso(CurrencySettingsActivity.this), false);
                                         WalletsMaster.getInstance(CurrencySettingsActivity.this).getCurrentWallet(CurrencySettingsActivity.this).getPeerManager().rescan();
-                                        BRAnimator.startBreadActivity(CurrencySettingsActivity.this, false);
+                                        BRAnimator.startWeyActivity(CurrencySettingsActivity.this, false);
 
                                     }
                                 });

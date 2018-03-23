@@ -30,7 +30,7 @@
  * limitations under the License.
  */
 
-package com.breadwallet.tools.qrcode.xzing;
+package com.weywallet.tools.qrcode.xzing;
 
 import android.hardware.Camera;
 import android.os.AsyncTask;

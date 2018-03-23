@@ -7,17 +7,17 @@ import android.net.Uri;
 import android.os.NetworkOnMainThreadException;
 import android.util.Log;
 
-import com.breadwallet.BreadApp;
-import com.breadwallet.core.BRCoreKey;
-import com.breadwallet.presenter.activities.util.ActivityUTILS;
-import com.breadwallet.tools.crypto.Base58;
-import com.breadwallet.tools.manager.BRApiManager;
-import com.breadwallet.tools.manager.BRReportsManager;
-import com.breadwallet.tools.manager.BRSharedPrefs;
-import com.breadwallet.tools.crypto.CryptoHelper;
-import com.breadwallet.tools.security.BRKeyStore;
-import com.breadwallet.tools.threads.executor.BRExecutor;
-import com.breadwallet.tools.util.Utils;
+import com.weywallet.WeyApp;
+import com.weywallet.core.BRCoreKey;
+import com.weywallet.presenter.activities.util.ActivityUTILS;
+import com.weywallet.tools.crypto.Base58;
+import com.weywallet.tools.manager.BRApiManager;
+import com.weywallet.tools.manager.BRReportsManager;
+import com.weywallet.tools.manager.BRSharedPrefs;
+import com.weywallet.tools.crypto.CryptoHelper;
+import com.weywallet.tools.security.BRKeyStore;
+import com.weywallet.tools.threads.executor.BRExecutor;
+import com.weywallet.tools.util.Utils;
 import com.platform.kvstore.RemoteKVStore;
 import com.platform.kvstore.ReplicatedKVStore;
 
@@ -60,14 +60,14 @@ import okhttp3.ResponseBody;
 import okio.Buffer;
 import okio.BufferedSink;
 
-import static com.breadwallet.tools.util.BRCompressor.gZipExtract;
+import static com.weywallet.tools.util.BRCompressor.gZipExtract;
 
 
 /**
- * BreadWallet
+ * WeyWallet
  * <p/>
- * Created by Mihail Gutan on <mihail@breadwallet.com> 9/29/16.
- * Copyright (c) 2016 breadwallet LLC
+ * Created by Mihail Gutan on <mihail@weywallet.com> 9/29/16.
+ * Copyright (c) 2016 weywallet LLC
  * <p/>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -95,7 +95,7 @@ public class APIClient {
     private static final String PROTO = "https";
 
     // convenience getter for the API endpoint
-    public static String BASE_URL = PROTO + "://" + BreadApp.HOST;
+    public static String BASE_URL = PROTO + "://" + WeyApp.HOST;
     //feePerKb url
     private static final String FEE_PER_KB_URL = "/v1/fee-per-kb";
     //token
@@ -107,7 +107,7 @@ public class APIClient {
 
 
     private static final String BUNDLES = "bundles";
-    public static String BREAD_POINT = "bread-frontend";
+    public static String BREAD_POINT = "wey-frontend";
 
     private static final String BUNDLES_FOLDER = String.format("/%s", BUNDLES);
 
@@ -125,7 +125,7 @@ public class APIClient {
     private Context ctx;
 
     public enum FeatureFlags {
-        BUY_BITCOIN("buy-bitcoin"),
+        BUY_BITCOIN("buy-weycoin"),
         EARLY_ACCESS("early-access");
 
         private final String text;
@@ -156,7 +156,7 @@ public class APIClient {
         ctx = context;
         itemsLeftToUpdate = new AtomicInteger(0);
         if (0 != (context.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE)) {
-            BREAD_POINT = "bread-frontend-staging";
+            BREAD_POINT = "wey-frontend-staging";
             BREAD_FILE = String.format("/%s.tar", BREAD_POINT);
             BREAD_EXTRACTED = String.format("%s-extracted", BREAD_POINT);
         }
@@ -191,11 +191,11 @@ public class APIClient {
     }
 
     //only for testing
-    public Response buyBitcoinMe() {
+    public Response buyWeyCoinMe() {
         if (ActivityUTILS.isMainThread()) {
             throw new NetworkOnMainThreadException();
         }
-        if (ctx == null) ctx = BreadApp.getBreadContext();
+        if (ctx == null) ctx = WeyApp.getWeyContext();
         if (ctx == null) return null;
         String strUtl = BASE_URL + ME;
         Request request = new Request.Builder()
@@ -225,7 +225,7 @@ public class APIClient {
         if (ActivityUTILS.isMainThread()) {
             throw new NetworkOnMainThreadException();
         }
-        if (ctx == null) ctx = BreadApp.getBreadContext();
+        if (ctx == null) ctx = WeyApp.getWeyContext();
         if (ctx == null) return null;
         try {
             String strUtl = BASE_URL + TOKEN;
@@ -312,14 +312,14 @@ public class APIClient {
             throw new RuntimeException("network on main thread");
         }
 
-        Map<String, String> headers = BreadApp.getBreadHeaders();
+        Map<String, String> headers = WeyApp.getWeyHeaders();
 
         Iterator it = headers.entrySet().iterator();
 
         Request.Builder newBuilder = locRequest.newBuilder();
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry) it.next();
-//            Log.e(TAG, "urlGET: adding extra Bread headers: " + pair.getKey() + " : " + pair.getValue());
+//            Log.e(TAG, "urlGET: adding extra Wey headers: " + pair.getKey() + " : " + pair.getValue());
             newBuilder.header((String) pair.getKey(), (String) pair.getValue());
         }
 
@@ -354,7 +354,7 @@ public class APIClient {
                 Uri newUri = Uri.parse(newLocation);
                 if (newUri == null) {
                     Log.e(TAG, "sendRequest: redirect uri is null");
-                } else if (!newUri.getHost().equalsIgnoreCase(BreadApp.HOST) || !newUri.getScheme().equalsIgnoreCase(PROTO)) {
+                } else if (!newUri.getHost().equalsIgnoreCase(WeyApp.HOST) || !newUri.getScheme().equalsIgnoreCase(PROTO)) {
                     Log.e(TAG, "sendRequest: WARNING: redirect is NOT safe: " + newLocation);
                 } else {
                     Log.w(TAG, "redirecting: " + request.url() + " >>> " + newLocation);
@@ -389,7 +389,7 @@ public class APIClient {
         }
 
         postReqBody = ResponseBody.create(null, data);
-        if (needsAuth && isBreadChallenge(response)) {
+        if (needsAuth && isWeyChallenge(response)) {
             Log.d(TAG, "sendRequest: got authentication challenge from API - will attempt to get token");
             getToken();
             if (retryCount < 1) {
@@ -439,7 +439,7 @@ public class APIClient {
             Log.e(TAG, "sendRequest: failed to retrieve token");
             return null;
         }
-        String authValue = "bread " + token + ":" + signedRequest;
+        String authValue = "wey " + token + ":" + signedRequest;
 //            Log.e(TAG, "sendRequest: authValue: " + authValue);
         modifiedRequest = request.newBuilder();
 
@@ -624,7 +624,7 @@ public class APIClient {
     }
 
     public boolean tryExtractTar() {
-        Context app = BreadApp.getBreadContext();
+        Context app = WeyApp.getWeyContext();
         if (app == null) {
             Log.e(TAG, "tryExtractTar: failed to extract, app is null");
             return false;
@@ -712,9 +712,9 @@ public class APIClient {
 
     }
 
-    public boolean isBreadChallenge(Response resp) {
+    public boolean isWeyChallenge(Response resp) {
         String challenge = resp.header("www-authenticate");
-        return challenge != null && challenge.startsWith("bread");
+        return challenge != null && challenge.startsWith("wey");
     }
 
     public boolean isFeatureEnabled(String feature) {
